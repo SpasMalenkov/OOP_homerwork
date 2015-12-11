@@ -2,35 +2,24 @@ package homework_computer;
 
 import java.util.Scanner;
 
+import homework_computer.Computer;
+
 public class Computer_statistics {
 
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		Computer computerOfSpas = new Computer();
-		Computer laptopOfAlex = new Computer();
+		Computer computerOfSpas =  new Computer(2015, 1030, false, 1000, 1000, "Windows 7");
+		Computer laptopOfAlex = new Computer(2014, 1299.90, true, 2000, 2000, "Windows 8");
+		Computer computerOfTodor = new Computer(2013, 1565, false, 2000, 2000, "Windows 7");
+		Computer laptopOfVladi = new Computer(2012, 849.90, true, 500, 500, "Windows 7");
 		
-		computerOfSpas.year = 2015;
-		computerOfSpas.price = 1030;
-		computerOfSpas.isNotebook = false;
-		computerOfSpas.hardDiskMemory = 1000;
-		computerOfSpas.freeMemory = 1000;
-		computerOfSpas.operationSystem = "Windows 7";
+//		String operationSystem = sc.nextLine();
+//		int memory = sc.nextInt();
 		
-		laptopOfAlex.year = 2014;
-		laptopOfAlex.price = 1500;
-		laptopOfAlex.isNotebook = true;
-		laptopOfAlex.hardDiskMemory = 1500;
-		laptopOfAlex.freeMemory = 1500;
-		laptopOfAlex.operationSystem = "Windows 7";
-		
-		
-		String operationSystem = sc.nextLine();
-		int memory = sc.nextInt();
-		
-		laptopOfAlex.changeOperationSystem(operationSystem);
-		computerOfSpas.useMemory(memory);
+//		laptopOfAlex.changeOperationSystem(operationSystem);
+//		computerOfSpas.useMemory(memory);
 		
 		System.out.println();
 		System.out.println(computerOfSpas.year);
@@ -49,6 +38,14 @@ public class Computer_statistics {
 		System.out.println(laptopOfAlex.freeMemory);
 		System.out.println(laptopOfAlex.operationSystem);
 		
+		System.out.println();
+		
+		System.out.println(computerOfSpas.comparePrice(laptopOfAlex));
+		System.out.println(computerOfTodor.comparePrice(laptopOfVladi));
+		System.out.println(computerOfTodor.comparePrice(laptopOfAlex));
+		System.out.println(computerOfSpas.comparePrice(laptopOfVladi));
+		System.out.println(computerOfSpas.comparePrice(computerOfTodor));
+		System.out.println(laptopOfVladi.comparePrice(laptopOfAlex));
 	}
 
 }
