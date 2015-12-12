@@ -13,7 +13,7 @@ public class College {
 		double min = sc.nextDouble();
 		System.out.println();
 		
-		//suzdavam obektite
+		//suzdavam obektite studenti
 		Student spas = new Student("Spas", "Java", 24);
 		Student georgi = new Student("Georgi", "PHP", 34);
 		Student todor = new Student("Todor", "Java", 29);
@@ -26,6 +26,7 @@ public class College {
 		Student dimitur = new Student("Dimitur", "PHP", 24);
 		Student snejana = new Student("Snejana", "Java", 24);
 		
+		//suzdavam grupata java
 		StudentGroup java = new StudentGroup("Java");
 		
 		//zadavam dopulnitelno promenlivi na obektite i gi im prilagam suotvetnite metodi
@@ -106,7 +107,7 @@ public class College {
 		yanko.receiveScholarship(min, 360);
 		yanko.upYear();
 		
-		//proverqvam kakvi promeni sa se poluchili sled metodite
+		//proverqvam kakvi promeni sa se poluchili sled izpulnenie na metodite
 		System.out.println(spas.name);
 		System.out.println(spas.isDegree);
 		System.out.println(spas.money + "\n");
@@ -164,12 +165,13 @@ public class College {
 		java.addStudent(vladimir);
 		java.addStudent(dimitur);
 		
-		
+		//printiram grupata i nai-dobria student
 		java.printStudentsInGroup();
 		java.bestStudent();
 		
 		//izprazvam grupata
 		java.emptyGroup();
+		
 		//pulnq q nanovo za proverka dali vzima pravilno
 		java.addStudent(spas);
 		java.addStudent(georgi);
@@ -183,6 +185,7 @@ public class College {
 		java.addStudent(dimitur);
 		java.addStudent(vasil);
 		
+		//printiram grupata i nai-dobria student
 		java.printStudentsInGroup();
 		java.bestStudent();
 		

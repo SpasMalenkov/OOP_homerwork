@@ -6,6 +6,7 @@ public class StudentGroup {
 	Student[] students;
 	int freePlaces;
 	
+	//default constructor
 	StudentGroup(){
 		
 		students = new Student[5];
@@ -13,6 +14,7 @@ public class StudentGroup {
 		
 	}
 	
+	//constructor s parametur
 	StudentGroup(String subject){
 		
 		this();
@@ -20,6 +22,7 @@ public class StudentGroup {
 		
 	}
 	
+	//metod za dobavqne na studenti v grupata
 	void addStudent(Student a){
 		
 		int i = students.length - freePlaces;
@@ -35,6 +38,7 @@ public class StudentGroup {
 		}
 	}
 	
+	//izprazvane na grupata
 	void emptyGroup(){
 		
 		for(int i = 0; i < students.length; i++){
@@ -48,6 +52,7 @@ public class StudentGroup {
 		
 	}
 	
+	//printirane na studentite v grupata
 	void printStudentsInGroup(){
 		
 		System.out.println("Group: " + this.groupSubject);
@@ -61,6 +66,7 @@ public class StudentGroup {
 		
 	}
 	
+	//printirane na nai-dobria student
 	void bestStudent(){
 		
 		double maxDegree = students[0].grade;

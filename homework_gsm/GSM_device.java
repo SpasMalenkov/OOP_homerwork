@@ -8,17 +8,25 @@ public class GSM_device {
 		
 		Scanner sc = new Scanner(System.in);
 		
+		//suzdavane na otdelni gsm-i
 		GSM gsmOfSpas = new GSM();
 		GSM gsmOfVladi = new GSM();
+		GSM gsmOfTodor = new GSM();
 		
+		//zadavane na harakteristikite
 		gsmOfSpas.model = "iPhone 4S";
 		gsmOfSpas.hasSimCard = false;
 		gsmOfSpas.simMobileNumber = "";
 		
 		gsmOfVladi.model = "HTC";
-		gsmOfVladi.hasSimCard = false;
-		gsmOfVladi.simMobileNumber = "";
+		gsmOfVladi.hasSimCard = true;
+		gsmOfVladi.simMobileNumber = "0898824109";
 		
+		gsmOfTodor.model = "Samsung";
+		gsmOfTodor.hasSimCard = true;
+		gsmOfTodor.simMobileNumber = "0887877077";
+		
+		//postavqne na sim karta i proverka za tova dali e postavqno predi tova
 		if(gsmOfSpas.hasSimCard == false && gsmOfSpas.simMobileNumber == ""){
 			
 			String simMobileCard = sc.nextLine();
@@ -28,7 +36,7 @@ public class GSM_device {
 			
 		}else{
 			
-			System.out.println("iPhone of Spas has inserted card.");
+			System.out.println(gsmOfSpas.model + " has inserted sim card.");
 			System.out.println(gsmOfSpas.hasSimCard);
 			System.out.println(gsmOfSpas.simMobileNumber);
 			
@@ -43,9 +51,24 @@ public class GSM_device {
 			
 		}else{
 			
-			System.out.println("HTC of Vladi has inserted card.");
+			System.out.println(gsmOfVladi.model + " has inserted sim card.");
 			System.out.println(gsmOfVladi.hasSimCard);
 			System.out.println(gsmOfVladi.simMobileNumber);
+			
+		}
+		
+		if(gsmOfTodor.hasSimCard == false && gsmOfTodor.simMobileNumber == ""){
+			
+			String simMobileCard = sc.nextLine();
+			gsmOfTodor.insertSimCard(simMobileCard);
+			System.out.println(gsmOfTodor.hasSimCard);
+			System.out.println(gsmOfTodor.simMobileNumber);
+			
+		}else{
+			
+			System.out.println(gsmOfTodor.model + " has inserted sim card.");
+			System.out.println(gsmOfTodor.hasSimCard);
+			System.out.println(gsmOfTodor.simMobileNumber);
 			
 		}
 		
@@ -62,41 +85,97 @@ public class GSM_device {
 //			
 //		}
 		
+		//suzdavane na obekti obajdania
 		Call callerSpas = new Call();
 		Call callerVladi = new Call();
+		Call callerTodor = new Call();
 		
-		System.out.println("Who wants to make a call?");
+		//koi se obajda i na kogo
+		
 		String makeACall;
+		
+		String receiveACall;
 		int duration = 0;
 		
+		//proverka na obajdaniata(s malko promeni i ne raboti...)
 		do{
 			
+			System.out.println("Who wants to make a call?");
 			makeACall = sc.nextLine();
-
+			System.out.println("Enter the legnth of the call.");
+			duration = sc.nextInt();
+			
+			
 			if(makeACall.equalsIgnoreCase("spas")){
 				
-				duration = sc.nextInt();
 				callerSpas.duration = duration;
 				callerSpas.caller = gsmOfSpas;
-				callerSpas.receiver = gsmOfVladi;
+				System.out.println("To who is calling?");
+				receiveACall = sc.nextLine();
+				if(receiveACall.equalsIgnoreCase("todor")){
+					
+					callerSpas.receiver = gsmOfTodor;
+					
+				}
+				if(receiveACall.equalsIgnoreCase("vladi")){
+					
+					callerSpas.receiver = gsmOfVladi;
+					
+				}
+				
 				gsmOfSpas.call(callerSpas.receiver, callerSpas.duration);
 				
 			}
 			
 			if(makeACall.equalsIgnoreCase("vladi")){
 				
-				duration = sc.nextInt();
 				callerVladi.duration = duration;
 				callerVladi.caller = gsmOfVladi;
-				callerVladi.receiver = gsmOfSpas;
+				System.out.println("To who is calling?");
+				receiveACall = sc.nextLine();
+				if(receiveACall.equalsIgnoreCase("todor")){
+					
+					callerSpas.receiver = gsmOfTodor;
+					
+				}
+				if(receiveACall.equalsIgnoreCase("spas")){
+					
+					callerSpas.receiver = gsmOfSpas;
+					
+				}
+				
 				gsmOfVladi.call(callerVladi.receiver, callerVladi.duration);
+				
+			}
+			
+			if(makeACall.equalsIgnoreCase("todor")){
+				System.out.println("To who is calling?");
+				receiveACall = sc.nextLine();
+				callerTodor.duration = duration;
+				callerTodor.caller = gsmOfTodor;
+				
+				if(receiveACall.equalsIgnoreCase("spas")){
+					
+					callerSpas.receiver = gsmOfSpas;
+					
+				}
+				if(receiveACall.equalsIgnoreCase("vladi")){
+					
+					callerSpas.receiver = gsmOfVladi;
+					
+				}
+				
+				gsmOfTodor.call(callerTodor.receiver, callerTodor.duration);
 				
 			}
 			
 		}while(duration > 0);
 		
+		//printirane na razlichnite rezultati - suma ot vsichki obajdania(vse oshte ne raboti kakto trqbva), 
+		//posledni obajdania(izhodqshti i vhodqshti)
 		gsmOfSpas.getSumForCall();
 		gsmOfVladi.getSumForCall();
+		gsmOfTodor.getSumForCall();
 		
 		System.out.println();
 		
@@ -107,6 +186,10 @@ public class GSM_device {
 		
 		gsmOfVladi.printInfoForTheLastIncomingCall();
 		gsmOfVladi.printInfoForTheLastOutgoingCall();
+		
+		System.out.println();
+		gsmOfTodor.printInfoForTheLastIncomingCall();
+		gsmOfTodor.printInfoForTheLastOutgoingCall();
 		
 	}
 

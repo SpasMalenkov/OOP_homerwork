@@ -15,6 +15,7 @@ public class Student {
 	boolean isDegree;
 	double money;
 	
+	//default constructor
 	Student(){
 		
 		this.grade = 4.0;
@@ -24,10 +25,12 @@ public class Student {
 		
 	}
 	
+	//constructor s parametri
 	Student(String name, String subject, int age){
 		
 		this();
 		
+		//proverka za imeto
 		if(name == null && name == ""){
 			
 			do{
@@ -43,6 +46,7 @@ public class Student {
 			
 		}
 		
+		//proverka za specialnosta
 		if(subject == null && subject == ""){
 			
 			do{
@@ -58,6 +62,7 @@ public class Student {
 			
 		}
 		
+		//proverka na godinite
 		if(age > 18){
 			
 			this.age = age;
@@ -69,6 +74,7 @@ public class Student {
 		}
 	}
 	
+	//uvelichavane na godinata v universiteta
 	void upYear(){
 		
 		if(this.yearInCollege == 4){
@@ -85,10 +91,12 @@ public class Student {
 				this.isDegree = true;
 				
 			}
+			
 		}
 		
 	}
 	
+	//proverka dali studenta shte poluchava stipendia
 	double receiveScholarship(double min, double amount){
 		
 		if(this.grade >= min && this.age < 30){

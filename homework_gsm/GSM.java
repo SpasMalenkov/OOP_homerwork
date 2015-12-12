@@ -9,7 +9,7 @@ public class GSM {
 	String lastIncomingCall;
 	String lastOutgoingCall;
 	
-	
+	//metod za proverka na sim karata i mobilnia nomer
 	void insertSimCard(String simMobileNumber){
 		
 		if(simMobileNumber.charAt(0) == '0' && simMobileNumber.charAt(1) == '8' && simMobileNumber.length() == 10){
@@ -37,6 +37,7 @@ public class GSM {
 		}
 	}
 	
+	//metod za premahvane na sim kartata
 	void removeSimCard(){
 		
 		if(this.hasSimCard == true && this.simMobileNumber != ""){
@@ -48,6 +49,7 @@ public class GSM {
 		
 	}
 	
+	//metod za provejdane na razgovor
 	void call(GSM receiver, int duration){
 		
 		if((duration <= 0) && (this.simMobileNumber == receiver.simMobileNumber) && (this.hasSimCard == false || receiver.hasSimCard == false)){
@@ -63,6 +65,7 @@ public class GSM {
 		}
 	}
 	
+	//metod za izchislenie na obshtata suma ot vsichki razgovori
 	void getSumForCall(){
 		
 		double sumForCall = this.outgoingCallsDuration * Call.priceForAMinute;
@@ -70,7 +73,7 @@ public class GSM {
 		
 	}
 	
-	//tuk ima oshte kakv da se izdokusorqva
+	//metod za izhodqshtite obajdania(tuk ima oshte kakvo da se izdokusorqva!)
 	void printInfoForTheLastOutgoingCall(){
 		
 		if(this.lastOutgoingCall != null){
@@ -84,6 +87,7 @@ public class GSM {
 		}
 	}
 	
+	//metod za vhodqshtite obajdania
 	void printInfoForTheLastIncomingCall(){
 		
 		if(this.lastIncomingCall != null){
