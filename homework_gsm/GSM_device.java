@@ -2,7 +2,7 @@ package homework_gsm;
 
 import java.util.Scanner;
 
-public class GSM_statistics {
+public class GSM_device {
 
 	public static void main(String[] args) {
 		

@@ -46,8 +46,12 @@ public class Computer {
 		this();
 		if(year < 1990){
 			
-			System.out.println("This is very old PC. Buy new.");
-			year = sc.nextInt();
+			do{
+				
+				System.out.println("You can't use so old PC.");
+				this.year = sc.nextInt();
+				
+			}while(this.year < 1990);
 			
 		}else{
 			
@@ -57,8 +61,12 @@ public class Computer {
 		
 		if(price < 0){
 			
-			System.out.println("There is no such price.");
-			price = sc.nextDouble();
+			do{
+				
+				System.out.println("There is no such price.");
+				this.price = sc.nextDouble();
+			
+			}while(this.price <= 0);
 			
 		}else{
 			
@@ -75,15 +83,15 @@ public class Computer {
 		
 		this(year, price, hardDiskMemory, freeMemory);
 		
-		this.isNotebook = isNotebook;
+		if(isNotebook == true){
+			
+			this.isNotebook = isNotebook;
+			
+		}
 		
 		if((operationSystem != null) && (operationSystem != "")){
 			
 			this.operationSystem = operationSystem;
-			
-		}else{
-			
-			this.operationSystem = "It doesn't have operation system!";
 			
 		}
 		
