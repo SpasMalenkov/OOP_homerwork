@@ -2,11 +2,12 @@ package homework_gsm;
 
 import java.util.Scanner;
 
-public class GSM_device {
+public class GSM_Calls {
 
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
+		
 		
 		GSM iPhone = new GSM();
 		GSM htc = new GSM();
