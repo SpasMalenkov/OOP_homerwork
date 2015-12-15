@@ -6,99 +6,100 @@ public class GSM {
 	boolean hasSimCard;
 	String simMobileNumber;
 	int outgoingCallsDuration;
-	String lastIncomingCall;
-	String lastOutgoingCall;
+	Call lastIncomingCall;
+	Call lastOutgoingCall;
 	
 	//metod za proverka na sim karata i mobilnia nomer
 	void insertSimCard(String simMobileNumber){
 		
-		if(simMobileNumber.charAt(0) == '0' && simMobileNumber.charAt(1) == '8' && simMobileNumber.length() == 10){
+		if(simMobileNumber != null){
 			
-			for(int i = 2; i < simMobileNumber.length(); i++){
+			if(simMobileNumber.length() == 10 && simMobileNumber.startsWith("08")){
 				
-				if(simMobileNumber.charAt(i) > '0' || simMobileNumber.charAt(i) < '9'){
-					
-					this.hasSimCard = true;
-					this.simMobileNumber = simMobileNumber;
-					
-				}else{
-					
-					this.hasSimCard = false;
-					System.out.println("There is no sim card inserted.");
-					
-				}
+				this.simMobileNumber = simMobileNumber;
+				this.hasSimCard = true;
+				
 			}
-			
-		}else{
-			
-			this.hasSimCard = false;
-			System.out.println("There is no sim card inserted.");
-			
 		}
+		
 	}
 	
 	//metod za premahvane na sim kartata
 	void removeSimCard(){
 		
-		if(this.hasSimCard == true && this.simMobileNumber != ""){
-			
-			this.hasSimCard = false;
-			this.simMobileNumber = "";
-			
-		}
+		this.hasSimCard = false;
+		this.simMobileNumber = "";
 		
 	}
 	
 	//metod za provejdane na razgovor
 	void call(GSM receiver, int duration){
 		
-		if((duration <= 0) && (this.simMobileNumber == receiver.simMobileNumber) && (this.hasSimCard == false || receiver.hasSimCard == false)){
+		if((receiver != null) && (receiver.hasSimCard)){
 			
-			System.out.println("You didn't make the call!");
-			
-		}else{
+			if(duration > 0 && duration <= 60){
+				
+				if(this.hasSimCard && !this.simMobileNumber.equals(receiver.simMobileNumber)){
 					
-			this.lastOutgoingCall = receiver.simMobileNumber; 
-			receiver.lastIncomingCall = this.simMobileNumber;
-			this.outgoingCallsDuration += duration;
-			
+					if(this != receiver){
+						
+						Call newCall = new Call();
+						newCall.caller = this;
+						newCall.receiver = receiver;
+						newCall.duration = duration;
+						
+						this.lastOutgoingCall = newCall;
+						receiver.lastIncomingCall = newCall;
+						this.outgoingCallsDuration += duration;
+						
+					}
+				}
+				
+			}
 		}
 	}
 	
 	//metod za izchislenie na obshtata suma ot vsichki razgovori
-	void getSumForCall(){
+	//promenih metoda ot double na string za da izvejda prilichno suobshtenie
+	//neznam dali taka da se napishe e mnogo pravilno no raboti!
+	String getSumForCall(){
 		
-		double sumForCall = this.outgoingCallsDuration * Call.priceForAMinute;
-		System.out.println(sumForCall);
+		if(lastOutgoingCall == null){
+			return  "Number " + this.simMobileNumber + " has " +  0.0 + " levas.";
+		}
+		
+		return "Number " + this.simMobileNumber + " has " +  this.outgoingCallsDuration * Call.priceForAMinute + " levas for calls.";
 		
 	}
 	
+	void printInfoForCall(Call call){
+		
+		if(call != null){
+			System.out.println("GSM model " + call.caller.model +
+					" with number " + 
+					call.caller.simMobileNumber + 
+					" made a call to model " +
+					call.receiver.model +
+					" with number " +
+					call.receiver.simMobileNumber + 
+					" for " + 
+					call.duration + " minutes.");
+			
+		}
+		
+	}
 	//metod za izhodqshtite obajdania(tuk ima oshte kakvo da se izdokusorqva!)
 	void printInfoForTheLastOutgoingCall(){
 		
-		if(this.lastOutgoingCall != null){
-			
-			System.out.println("The last outgoing call was to " + lastOutgoingCall);
-			
-		}else{
-			
-			System.out.println("There are no outcoming calls.");
-			
-		}
+		printInfoForCall(lastOutgoingCall);
+		
 	}
 	
 	//metod za vhodqshtite obajdania
 	void printInfoForTheLastIncomingCall(){
 		
-		if(this.lastIncomingCall != null){
-			
-			System.out.println("The last incoming call was from " + lastIncomingCall);
-			
-		}else{
-			
-			System.out.println("There are no incoming calls.");
-			
-		}
+		printInfoForCall(lastIncomingCall);
+		
 	}
 	
 }
