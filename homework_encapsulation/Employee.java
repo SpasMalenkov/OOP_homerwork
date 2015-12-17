@@ -67,18 +67,21 @@ public class Employee {
 			
 			this.getCurrentTask().setWorkingHoursToFinishTheTask(this.getCurrentTask().getWorkingHoursToFinishTheTask() - this.hoursLeftForToday);
 			this.setHoursLeftForToday(0);
+			return;
 			
 		}
 		if(this.hoursLeftForToday > this.getCurrentTask().getWorkingHoursToFinishTheTask()){
 			
 			this.setHoursLeftForToday(this.hoursLeftForToday - this.getCurrentTask().getWorkingHoursToFinishTheTask());
 			this.getCurrentTask().setWorkingHoursToFinishTheTask(0);
+			return;
 			
 		}
 		if(this.hoursLeftForToday == this.getCurrentTask().getWorkingHoursToFinishTheTask()){
 			
 			this.getCurrentTask().setWorkingHoursToFinishTheTask(0);
 			this.setHoursLeftForToday(0);
+			return;
 			
 		}
 		
