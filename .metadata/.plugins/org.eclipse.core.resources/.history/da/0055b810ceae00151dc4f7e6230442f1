@@ -1,0 +1,28 @@
+package person_student_employee;
+
+public class Employee extends Person{
+	
+	private double daySalary;
+	
+	void setDaySalary(double daySalary){
+		if(daySalary >= 0){
+			this.daySalary = daySalary;
+		}
+	}
+	
+	public double getDaySalary(){
+		return daySalary;
+	}
+	
+	public Employee(String name, int age, boolean isMale, double daySalary) {
+		super(name, age, isMale);
+		setDaySalary(daySalary);
+	}
+
+	void showEmployeeInfo(){
+		
+		System.out.println("This " + this.getName() + " is " + this.getAge() 
+		+ " years old and is  male: " + this.getIsMale() 
+		+ " and has day salary of: " + this.getDaySalary() + ".");
+	}
+}
