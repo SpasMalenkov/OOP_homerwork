@@ -40,8 +40,6 @@ public class Program {
 					v.showPersonInfo();
 				}
 				
-			}else{
-				System.out.println("It is empty object");
 			}
 		}
 	}

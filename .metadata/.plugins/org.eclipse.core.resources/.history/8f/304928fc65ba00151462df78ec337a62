@@ -1,0 +1,74 @@
+package homework_abstraction;
+
+public class AllWork {
+	
+	private static final int MAX_PLACES_FOR_TASKS = 10;
+	private Task[] tasks;
+	private int freePlacesForTasks;
+	private static int currentUnassignedTask = 0;
+	
+	public AllWork(){
+		
+		tasks = new Task[MAX_PLACES_FOR_TASKS];
+		freePlacesForTasks = MAX_PLACES_FOR_TASKS;
+		
+	}
+	
+	public void addTask(Task task){
+		
+		int i = MAX_PLACES_FOR_TASKS - freePlacesForTasks;
+		
+		if(freePlacesForTasks > 0 && tasks[i] == null){
+			
+			tasks[i] = task;
+			freePlacesForTasks -= 1;
+			
+		}else{
+			
+			System.out.println("There is no free places for tasks.");
+		
+		}
+		
+	}
+	
+	public static int getCurrentUnassignedTask() {
+		return currentUnassignedTask;
+	}
+
+	public Task getNextTask(){
+//		if(tasks[getCurrentUnassignedTask()].getWorkingHoursToFinishTheTask() == 0){
+//			currentUnassignedTask+=1;
+//			return tasks[getCurrentUnassignedTask()];
+//		}else{
+			return tasks[getCurrentUnassignedTask()];
+//		}
+	}
+	
+	public boolean isAllWorkDone(){
+		
+		int count = 0;
+		
+		for(int i = 0; i < MAX_PLACES_FOR_TASKS; i++){
+			
+			if(tasks[i].getWorkingHoursToFinishTheTask() == 0){
+				count++;
+			}else{
+				count--;
+			}
+		}
+		
+		if(count == MAX_PLACES_FOR_TASKS){
+			return true;
+		}else{
+			return false;
+		}
+		
+	}
+	
+	public void printArray(){
+		for(int i = 0; i < MAX_PLACES_FOR_TASKS; i++){
+			System.out.println(tasks[i].getName());
+		}
+	}
+	
+}

@@ -1,0 +1,73 @@
+package homework_abstraction;
+
+public class Employee {
+	
+	private String name;
+	private Task currentTask;
+	private static int hoursLeftForToday = 8;
+	private AllWork allWork;
+	
+	
+	public Employee(String name){
+		setName(name);
+	}
+	
+	
+	public void work(){
+		if(this.hoursLeftForToday < this.getCurrentTask().getWorkingHoursToFinishTheTask()){
+			this.getCurrentTask().setWorkingHoursToFinishTheTask(this.getCurrentTask().getWorkingHoursToFinishTheTask() - this.hoursLeftForToday);
+			this.setHoursLeftForToday(0);
+			return;
+		}
+		if(this.hoursLeftForToday > this.getCurrentTask().getWorkingHoursToFinishTheTask()){
+			this.setHoursLeftForToday(this.hoursLeftForToday - this.getCurrentTask().getWorkingHoursToFinishTheTask());
+			this.getCurrentTask().setWorkingHoursToFinishTheTask(0);
+			return;
+		}
+		if(this.hoursLeftForToday == this.getCurrentTask().getWorkingHoursToFinishTheTask()){
+			this.getCurrentTask().setWorkingHoursToFinishTheTask(0);
+			this.setHoursLeftForToday(0);
+			return;
+		}
+	}
+	
+	
+	public void startWorkingDay(){
+		if(hoursLeftForToday == 0){
+			setHoursLeftForToday(8);
+		}
+	}
+	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
+	public Task getCurrentTask() {
+		return currentTask;
+	}
+	public void setCurrentTask(Task currentTask) {
+		this.currentTask = currentTask;
+	}
+
+	
+	public int getHoursLeftForToday() {
+		return hoursLeftForToday;
+	}
+	public void setHoursLeftForToday(int hoursLeftForToday) {
+		this.hoursLeftForToday = hoursLeftForToday;
+	}
+	
+	
+	public AllWork getAllWork(){
+		return allWork;
+	}
+	public void setAllWork(AllWork allWork){
+		this.allWork = allWork;
+	}
+	
+}
