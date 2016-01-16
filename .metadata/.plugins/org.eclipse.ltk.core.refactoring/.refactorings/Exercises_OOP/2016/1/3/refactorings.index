@@ -2,3 +2,5 @@
 1452895355376	Rename package 'human_exercises'
 1452903850550	Delete element
 1452903856559	Delete element
+1452904305892	Rename type 'School'
+1452905597117	Extract constant 'MAX_CLASSES'

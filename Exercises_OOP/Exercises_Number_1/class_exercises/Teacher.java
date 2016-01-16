@@ -35,9 +35,9 @@ public class Teacher extends Human{
 	}
 	
 	public int Teach(int teaching){
-		System.out.println("The teacher " + this.getName() + " is teaching " + this.subject + ".");
-		if(teaching < 30 || teaching > 100){
-			teaching = 30;
+		System.out.println("The teacher " + this.getName() + " " + this.getSurname() + " is teaching " + this.subject + ".");
+		if(teaching < 25 || teaching > 100){
+			teaching = 25;
 		}
 		return teaching;
 	}
@@ -46,4 +46,6 @@ public class Teacher extends Human{
 	public void Test(){
 		System.out.println("The teacher " + this.getName() + " held an exam in class.");
 	}
+	
+	
 }

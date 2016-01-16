@@ -49,4 +49,6 @@ public class Student extends Human{
 	public int getKnowledge(){
 		return knowledge;
 	}
+	
+	
 }

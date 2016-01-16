@@ -3,7 +3,7 @@ package homework_abstraction;
 public class AllWork {
 	
 	private static final int MAX_PLACES_FOR_TASKS = 10;
-	private Task[] tasks;
+	private Task[] tasks = new Task[10];
 	private int freePlacesForTasks;
 	private static int currentUnassignedTask = 0;
 	
