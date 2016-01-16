@@ -1,0 +1,19 @@
+package class_exercises;
+
+public class Subject {
+	
+	private String subName;
+
+	public String getSubName() {
+		return subName;
+	}
+
+	public void setSubName(String subName) {
+		this.subName = subName;
+	}
+
+	public Subject(String subName) {
+		setSubName(subName);
+	}
+	
+}

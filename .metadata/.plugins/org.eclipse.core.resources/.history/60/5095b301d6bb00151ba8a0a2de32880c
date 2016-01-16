@@ -1,0 +1,29 @@
+package class_exercises;
+
+public class School {
+
+	public static void main(String[] args) {
+		
+		Teacher elka = new Teacher("Elka", "Malenkova", 700, "Physics");
+		Student spas = new Student("Spas", "Malenkov");
+		Student vasil = new Student("Vasil", "Petkov");
+		Student ivan = new Student("Ivan", "Vasev");
+		Student maria = new Student("Maria", "Zagariova");
+		Student cvetelina = new Student("Cvetelina", "Cvetanova");
+		Student ivelina = new Student("Ivelina", "Chalukova");
+		Student georgi = new Student("Georgi", "Georgiev");
+		Student dimitur = new Student("Dimitur", "Krustev");
+		Student ivanst = new Student("Ivan", "Stoyanov");
+		Student zhivko = new Student("Zhivko", "Vasev");
+		
+		Student[] students1 = {spas, vasil, ivan, maria, cvetelina, ivelina, georgi, dimitur, ivanst, zhivko};
+		ClassOfStudents sedmiKlas = new ClassOfStudents(elka, students1);
+		
+		sedmiKlas.learnInClass(30);
+		for(int i = 0; i < students1.length; i++){
+			System.out.println(students1[i].getKnowledge());
+		}
+		
+	}
+
+}

@@ -1,0 +1,40 @@
+package human_exercises;
+
+public class Student extends Human{
+	
+	private double mark;
+	private String subject;
+	private Subject knowledge;
+	
+	public Student(String name, String surname, double mark) {
+		super(name, surname);
+		setMark(mark);
+	}
+	
+	public double getMark() {
+		return mark;
+	}
+	
+	public void setMark(double mark) {
+		
+		if(mark < 2){
+			System.out.println("Unvalid entry");
+			setMark(mark);
+		}else{
+			this.mark = mark;
+		}
+		
+	}
+	
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public void Study(){
+		
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;geometry.Verties2D&apos; to &apos;Vertice2D&apos;&#x0D;&#x0A;- Original project: &apos;Geometry&apos;&#x0D;&#x0A;- Original element: &apos;geometry.Verties2D&apos;&#x0D;&#x0A;- Renamed element: &apos;geometry.Vertice2D&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Verties2D&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/geometry&lt;geometry{Verties2D.java[Verties2D" matchStrategy="1" name="Vertice2D" qualified="false" references="true" similarDeclarations="false" stamp="1452874210941" textual="false" version="1.0"/>
+</session>

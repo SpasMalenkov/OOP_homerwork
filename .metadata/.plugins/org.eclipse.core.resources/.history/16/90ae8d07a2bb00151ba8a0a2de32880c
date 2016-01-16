@@ -1,0 +1,5 @@
+package geometry;
+
+public class SpaceShape extends Shape implements AreaMeasurable, VolumeMeasurable{
+
+}
