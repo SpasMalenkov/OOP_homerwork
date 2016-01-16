@@ -9,10 +9,10 @@ public class Employee_Working_Hard_On_A_Task {
 		Scanner sc = new Scanner(System.in);
 		
 		Task task1 = new Task("task1",8);
-		Task task2 = new Task("task2",16);
+		Task task2 = new Task("task2",15);
 		Task task3 = new Task("task3",24);
 		Task task4 = new Task("task4",32);
-		Task task5 = new Task("task5",16);
+		Task task5 = new Task("task5",15);
 		Task task6 = new Task("task6",24);
 		Task task7 = new Task("task7",32);
 		Task task8 = new Task("task8",40);
@@ -40,14 +40,13 @@ public class Employee_Working_Hard_On_A_Task {
 		
 		Employee[] employees = {spas, vasil, todor, vladi};
 		
-		//ne uspqh da izmislq nachin da produlji i da mi pokaje nakraq dali vsichki zadachi sa izpulneni
-		//ne se seshtam kak da opravq NullPointerException greshkata
-		while(true){
-			
-			Employee.startWorkingDay();
+		//uspqh da opravq programata da ne grumva pri svurshvane na nezaetite zadachi,
+		//NO ne uspqh da izmislq kak da teglqt nova zadacha kato prikluchat s tekushtata
+		while(tasks.isAllWorkDone() == false){
 			
 			for(int i = 0; i < employees.length; i++){
-				 employees[i].work();
+				employees[i].setHoursLeftForToday(8);
+				employees[i].work();
 			}
 			
 			System.out.println("Is all work done: " + tasks.isAllWorkDone());
@@ -55,5 +54,4 @@ public class Employee_Working_Hard_On_A_Task {
 			System.out.println();
 		}
 	}
-	
 }

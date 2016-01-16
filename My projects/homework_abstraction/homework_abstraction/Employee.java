@@ -4,7 +4,7 @@ public class Employee {
 	
 	private String name;
 	private Task currentTask;
-	private static int hoursLeftForToday;
+	private int hoursLeftForToday;
 	private static AllWork allWork;
 	
 	
@@ -18,7 +18,7 @@ public class Employee {
 		if(this.currentTask == null || this.currentTask.getWorkingHoursToFinishTheTask() == 0){
 			this.setCurrentTask(allWork.getNextTask());
 			if(this.currentTask == null){
-				System.out.println("Nqma svobodni zadachi.");
+				System.out.println("There are no free tasks for employee " + this.getName() + ".");
 			}else{
 				this.currentTask.freeTask = false;
 				getToWork();
@@ -35,13 +35,20 @@ public class Employee {
 			getToWork();
 		}
 		
-		else if(this.currentTask == null){
+		else if(this.currentTask == null && this.getHoursLeftForToday() > 0){
 			this.setCurrentTask(allWork.getNextTask());
-			
+			if(this.currentTask == null){
+				System.out.println("Nqma svobodni zadachi.");
+			}else{
+				this.currentTask.freeTask = false;
+				getToWork();
+			}
 		}
+		
+		
 	}
-
-
+	
+	
 	private void getToWork() {
 		System.out.println("Employee " + this.getName() + " is working on task " + this.currentTask.getName());
 		if(this.hoursLeftForToday < this.getCurrentTask().getWorkingHoursToFinishTheTask()){
@@ -68,13 +75,6 @@ public class Employee {
 	}
 	
 	
-	public static void startWorkingDay(){
-		if(hoursLeftForToday == 0){
-			setHoursLeftForToday(8);
-		}
-	}
-	
-	
 	public String getName() {
 		return name;
 	}
@@ -89,12 +89,12 @@ public class Employee {
 	public void setCurrentTask(Task currentTask) {
 		this.currentTask = currentTask;
 	}
-
+	
 	
 	public int getHoursLeftForToday() {
 		return hoursLeftForToday;
 	}
-	public static void setHoursLeftForToday(int hoursLeft) {
+	public void setHoursLeftForToday(int hoursLeft) {
 		hoursLeftForToday = hoursLeft;
 	}
 	

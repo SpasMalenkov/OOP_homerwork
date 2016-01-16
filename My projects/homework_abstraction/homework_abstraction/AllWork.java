@@ -31,8 +31,7 @@ public class AllWork {
 			return tasks[currentUnassignedTask];
 		}
 		else{
-			tasks[currentUnassignedTask] = null;
-			return tasks[currentUnassignedTask];
+			return null;
 		}
 		
 	}
