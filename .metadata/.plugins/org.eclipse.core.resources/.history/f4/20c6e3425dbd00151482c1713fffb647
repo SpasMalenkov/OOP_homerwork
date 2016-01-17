@@ -1,0 +1,11 @@
+package carpartsshop;
+
+public interface IRelationshipCarPartsShopCustomer {
+	
+	default void addCar(Car car){
+	}
+	default void addCarParts(CarParts carparts){
+	}
+	default void sellParts(CarParts carpart, int quantity){
+	}
+}

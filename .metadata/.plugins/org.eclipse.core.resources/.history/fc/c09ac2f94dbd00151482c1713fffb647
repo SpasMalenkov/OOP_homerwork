@@ -95,7 +95,7 @@ public class Company implements IBuySellMakeParts{
 		}
 	}
 	
-	@Override
+	
 	public void makeParts(int quantity, int priceSell){
 		this.carparts.setQuantity(quantity);
 		this.carparts.setPriceSell(priceSell);

@@ -10,10 +10,11 @@ public class Customer implements IRelationshipCarPartsShopCustomer{
 	private CarParts[] carparts = new CarParts[MAX_PLACES_FOR_PARTS];
 	
 	
-	public Customer(String name, double money, Car car) {
+	public Customer(String name, double money, Car car, CarParts[] carparts) {
 		this.name = name;
 		this.money = money;
 		this.car = car;
+		this.carparts = carparts;
 	}
 	
 	
@@ -58,6 +59,5 @@ public class Customer implements IRelationshipCarPartsShopCustomer{
 			System.out.println("You can't buy more carparts.");
 		}
 	}
-	
 	
 }

@@ -89,4 +89,22 @@ public class CarPartsShop implements IBuySellMakeParts,IRelationshipCarPartsShop
 		}
 	}
 	
+	@Override
+	public boolean sellParts(CarParts carpart, int quantity){
+		boolean doneSelling = false;
+		for(int i = 0; i < this.carparts.length; i++){
+			if(carparts[i].getPartName().equals(carpart.getPartName())){
+				if(carparts[i].getQuantity() > quantity){
+					carparts[i].setQuantity(carparts[i].getQuantity() - quantity);
+					this.setMoney(this.getMoney() + carparts[i].getPriceSell() * quantity);
+					doneSelling = true;
+				}else{
+					doneSelling = false;
+				}
+			}else{
+				doneSelling = false;
+			}
+		}
+		return doneSelling;
+	}
 }

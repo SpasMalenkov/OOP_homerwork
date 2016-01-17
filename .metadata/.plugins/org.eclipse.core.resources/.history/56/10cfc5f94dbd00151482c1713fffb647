@@ -1,0 +1,5 @@
+package carpartsshop;
+
+public interface IRelationshipCarPartsShopCustomer {
+
+}

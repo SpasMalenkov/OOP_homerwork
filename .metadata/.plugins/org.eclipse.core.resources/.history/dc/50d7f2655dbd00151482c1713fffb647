@@ -59,5 +59,12 @@ public class Customer implements IRelationshipCarPartsShopCustomer{
 		}
 	}
 	
+	@Override
+	public void buyParts(CarPartsShop carpartshop, CarParts carpart, int quantity){
+		if(carpartshop.sellParts(carpart, quantity) == true){
+			carpart.setQuantity(quantity);
+			this.addCarParts(carpart);
+		}
+	}
 	
 }

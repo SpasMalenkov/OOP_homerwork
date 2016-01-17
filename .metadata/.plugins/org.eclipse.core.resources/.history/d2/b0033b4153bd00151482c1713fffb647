@@ -79,7 +79,8 @@ public class CarPartsShop implements IBuySellMakeParts,IRelationshipCarPartsShop
 					if(company.getCarparts().getPriceSell()*quantity <= this.getMoney()){
 						this.setMoney(this.getMoney() - (company.getCarparts().getPriceSell()*quantity));
 						this.carparts[i].setQuantity(quantity);
-						this.carparts[i].setPriceSell(company.getCarparts().getPriceSell() * 1.1);
+						this.carparts[i].setPriceSell(company.getCarparts().getPriceSell());
+						this.carparts[i].setPriceBuy(carparts[i].getPriceSell() * 1.5);
 						company.sellParts(quantity);
 						System.out.println(this.getName() + " is buying " + this.carparts[i].getPartName() + " from " + company.getName());
 						break;
@@ -89,4 +90,17 @@ public class CarPartsShop implements IBuySellMakeParts,IRelationshipCarPartsShop
 		}
 	}
 	
+	@Override
+	public void sellParts(CarParts carpart, int quantity){
+		for(int i = 0; i < this.carparts.length; i++){
+			if(carparts[i].getPartName().equals(carpart.getPartName())){
+				if(carparts[i].getQuantity() > quantity){
+					carparts[i].setQuantity(carparts[i].getQuantity() - quantity);
+					this.setMoney(this.getMoney() + carparts[i].getPriceSell() * quantity);
+				}
+			}
+		}
+//		this.carparts.setQuantity(this.carparts.getQuantity() - quantity);
+//		this.setMoney(this.getMoney() + this.carparts.getPriceSell()*quantity);
+	}
 }

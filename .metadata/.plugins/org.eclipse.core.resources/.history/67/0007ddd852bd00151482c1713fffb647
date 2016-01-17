@@ -1,6 +1,6 @@
 package carpartsshop;
 
-public class CarPartsShop implements IBuySellMakeParts,IRelationshipCarPartsShopCustomer{
+public class CarPartsShop implements IBuySellMakeParts{
 	
 	private static final int MAX_PLACES_FOR_PARTS = 3;
 	private int freePlacesForParts = 3;
@@ -79,7 +79,6 @@ public class CarPartsShop implements IBuySellMakeParts,IRelationshipCarPartsShop
 					if(company.getCarparts().getPriceSell()*quantity <= this.getMoney()){
 						this.setMoney(this.getMoney() - (company.getCarparts().getPriceSell()*quantity));
 						this.carparts[i].setQuantity(quantity);
-						this.carparts[i].setPriceSell(company.getCarparts().getPriceSell() * 1.1);
 						company.sellParts(quantity);
 						System.out.println(this.getName() + " is buying " + this.carparts[i].getPartName() + " from " + company.getName());
 						break;
@@ -89,4 +88,9 @@ public class CarPartsShop implements IBuySellMakeParts,IRelationshipCarPartsShop
 		}
 	}
 	
+	@Override
+	public void sellParts(int quantity){
+		this.carparts.setQuantity(this.carparts.getQuantity() - quantity);
+		this.setMoney(this.getMoney() + this.carparts.getPriceSell()*quantity);
+	}
 }
