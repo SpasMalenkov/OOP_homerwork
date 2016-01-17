@@ -1,0 +1,8 @@
+package carpartsshop;
+
+public interface IBuySell {
+	
+	void buyParts();
+	void sellParts();
+	
+}

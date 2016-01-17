@@ -1,0 +1,14 @@
+package carpartsshop;
+
+import java.text.ParseException;
+
+public class DemoCarPartsShop {
+
+	public static void main(String[] args) throws ParseException {
+		
+		Car bmw = new Car("BMW 316i", "02.15.1991");
+		
+		
+	}
+
+}

@@ -1,0 +1,65 @@
+package carpartsshop;
+
+public class CarPartsShop implements IBuySellMakeParts{
+	
+	private static final int MAX_PLACES_FOR_PARTS = 10;
+	private int freePlacesForParts = 0;
+	private String name;
+	private CarParts[] carparts = new CarParts[MAX_PLACES_FOR_PARTS];
+	private double money;
+	private String phoneNumber;
+	
+	public CarPartsShop(String name, CarParts[] carparts, double money) {
+		this.name = name;
+		this.carparts = carparts;
+		this.money = money;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		if(!name.equalsIgnoreCase("") && !name.equalsIgnoreCase(null)){
+			this.name = name;
+		}
+	}
+
+
+	public CarParts[] getCarparts() {
+		return carparts;
+	}
+	@Override
+	public void addCarParts(CarParts carpart){
+		int i = MAX_PLACES_FOR_PARTS - freePlacesForParts;
+		if(freePlacesForParts > 0 && carparts[i] == null){
+			carparts[i] = carpart;
+			freePlacesForParts -= 1;
+		}else{
+			System.out.println("You can't buy more carparts.");
+		}
+	}
+
+
+	public double getMoney() {
+		return money;
+	}
+	public void setMoney(double money) {
+		if(money > 100000){
+			this.money = money;
+		}
+	}
+	
+	
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		if(!phoneNumber.equalsIgnoreCase("") && !phoneNumber.equalsIgnoreCase(null)){
+			if(phoneNumber.length() == 10 && phoneNumber.startsWith("08")){
+				this.phoneNumber = phoneNumber;
+			}
+		}
+	}
+	
+}

@@ -1,0 +1,14 @@
+package carpartsshop;
+
+public class CarParts {
+	
+	int partCode;
+	String partName;
+	double priceBuy;
+	double priceSell;
+	String categoryUse;
+	Car[] carUsedOn = new Car[3];
+	Company manufacturingCompany;
+	int quantity;
+	
+}
