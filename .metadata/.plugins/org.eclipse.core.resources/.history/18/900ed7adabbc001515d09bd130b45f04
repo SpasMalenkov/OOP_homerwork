@@ -1,0 +1,24 @@
+package supermarket;
+
+public class DemoPurchaseManager {
+	
+	public static void main(String[] args){
+		
+		
+		
+		
+	}
+	
+	
+	public static void purchaseFood(FoodProduct product, Customer customer){
+		
+		if(product.getQuantity() > 0){
+			if(product.getPrice() < customer.getBalance()){
+				if(product.getExpirationDate() > 0){
+					
+				}
+			}
+		}
+		
+	}
+}

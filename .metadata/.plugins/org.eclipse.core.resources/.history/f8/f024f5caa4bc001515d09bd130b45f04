@@ -1,0 +1,16 @@
+package supermarket;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class FoodProduct extends Product{
+	
+	int expirationDate;
+	
+	
+	FoodProduct(String name, double price, int quantity, int ageRestrciction, int expirationDate) {
+		super(name, price, quantity, ageRestrciction);
+		this.expirationDate = expirationDate;
+	}
+	
+}
