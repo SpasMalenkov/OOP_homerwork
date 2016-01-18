@@ -47,8 +47,5 @@ public class Person {
 		this.isMale = isMale;
 	}
 	
-	 public String toString() {
-		return String.format("Name: " + this.getName() + "; years: " + this.getAge());
-		 
-	 }
+	
 }

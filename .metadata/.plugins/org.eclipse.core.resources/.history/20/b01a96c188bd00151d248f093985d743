@@ -23,8 +23,6 @@ public class Program {
 		
 		displayOverTime(persons);
 		
-		System.out.println(spas.toString());
-		
 	}
 	static void displayInfo(Person[] array){
 		
