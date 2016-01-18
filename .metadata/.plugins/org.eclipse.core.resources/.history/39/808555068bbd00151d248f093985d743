@@ -25,7 +25,7 @@ public class Program {
 		
 		displayOverTime(persons);
 		
-		System.out.println(Arrays.toString(persons));
+		System.out.println(Arrays.ToString(persons));
 		
 	}
 	static void displayInfo(Person[] array){
