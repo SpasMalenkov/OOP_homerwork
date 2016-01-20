@@ -11,25 +11,25 @@ public class DemoProgram {
 
 	public static void main(String[] args) throws ParseException {
 		
-		GasStation omv = new GasStation("OMV");//suzdavane na benzinostanciata
+		GasStation omv = new GasStation("OMV");
 		
 //		omv.printVignette();
 		
-		Driver[] drivers = new Driver[20];//suzdavane na 20 shoiora
+		Driver[] drivers = new Driver[20];
 		
-		createDrivers(drivers, omv);//zadavane stoinosti na svoistvata im
+		createDrivers(drivers, omv);
 		
-		Venchile[] venchiles = new Venchile[200];//suzdavane na 200 prevozni sredstva
+		Venchile[] venchiles = new Venchile[200];
 		
-		createVenchiles(venchiles);//zadavane stoinosti na svoistvata im
+		createVenchiles(venchiles);
 		
 		for(int i = 0; i < drivers.length; i++){
-			System.out.println(drivers[i].getName() + " "+ drivers[i].getMoney());//printirane na vsichki shofiori i tehnite pari
+			System.out.println(drivers[i].getName() + " "+ drivers[i].getMoney());
 		}
 		
 //		displayInfo(venchiles);
 		
-		//zadavane na po 10 prevozni sredstva na shofior
+		
 		addVenchiles(drivers[0], venchiles, 0, 10);
 		addVenchiles(drivers[1], venchiles, 10, 20);
 		addVenchiles(drivers[2], venchiles, 20, 30);
@@ -53,7 +53,7 @@ public class DemoProgram {
 		
 		
 //		for(int i = 0; i < drivers.length; i++){
-//			drivers[i].displayVenchiles();//printirane na prevoznite sredstva na vseki shofior
+//			drivers[i].displayVenchiles();
 //			System.out.println();
 //		}
 		
@@ -63,26 +63,23 @@ public class DemoProgram {
 		
 		System.out.println();
 		
-		purchaseVignettes(drivers);//kupuvane na vinetki
+		purchaseVignettes(drivers);
 		
 		System.out.println();
 		
 		for(int i = 0; i < drivers.length; i++){
-			drivers[i].displayVenchiles();//printirane na vsichki prevozni sredstva s vinetki za vseki shofior
+			drivers[i].displayVenchiles();
 			System.out.println();
 		}
 		
-		System.out.println("The final turnonver for today is " + omv.getTurnoverForToday() + ".");//printirane na oborota na benzinastanciata
+		System.out.println("The final turnonver for today is " + omv.getTurnoverForToday() + ".");
 		
 		System.out.println();
 		
-		omv.printVignette();//printirane na vsichki ostanali vinetki v benzinostanciata
+		omv.printVignette();
 		
-//		for(int i = 0; i < drivers.length; i++){
-//			drivers[i].printTrucksWithExpiredVignettes();
-//			System.out.println();
-//		}
 		
+		printTrucksWithExpiredVignettes(drivers);
 	}
 	
 	
@@ -91,6 +88,22 @@ public class DemoProgram {
 	static void addVenchiles(Driver drivers, Venchile[] venchiles, int firstIndex, int lastIndex){
 		for(int i = firstIndex; i < lastIndex; i++){
 			drivers.addVenchiles(venchiles[i]);
+		}
+	}
+	
+	//printirane na kanionite s iztekli vinetki
+	static void printTrucksWithExpiredVignettes(Driver[] drivers){
+		Calendar calendar = Calendar.getInstance();
+		Date now = calendar.getTime();
+		for(int i = 0; i < drivers.length; i++){
+			for(Venchile v : drivers[i].getVenchiles()){
+				if(v != null){
+					Class<? extends Venchile> c = v.getClass();
+					if(c.equals(Truck.class)){
+						System.out.println(v.getModel() + " " + v.getVignette().getExpiryDate().before(now));
+					}
+				}
+			}
 		}
 	}
 	

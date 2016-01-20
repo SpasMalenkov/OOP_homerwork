@@ -109,23 +109,17 @@ public class Driver {
 	}
 	
 	//printirane na kanionite s iztekli vinetki
-	//tuk ne mojah da se opravq...
-//	public void printTrucksWithExpiredVignettes(){
-//		Calendar calendar = Calendar.getInstance();
-//		Date now = calendar.getTime();
-//		
-//			for(Venchile v : this.getVenchiles()){
-//				if(v != null){
-//					Class<? extends Venchile> c = v.getClass();
-//					if(c.equals(Truck.class)){
-//						for(int i = 0; i < MAX_VENCHILES_OWNED; i++){
-//						if(this.venchiles[i].getVignette().getExpiryDate().before(now)){
-//							System.out.println(v.getModel() + " " + this.venchiles[i].getVignette().getExpiryDate());
-//						}
-//					}
-//				}
-//			}
-//		}
-//	}
+	public void printTrucksWithExpiredVignettes(){
+		Calendar calendar = Calendar.getInstance();
+		Date now = calendar.getTime();
+		for(Venchile v : this.getVenchiles()){
+			if(v != null){
+				Class<? extends Venchile> c = v.getClass();
+				if(c.equals(Truck.class)){
+					System.out.println(v.getModel() + " " + v.getVignette().getExpiryDate().before(now));
+				}
+			}
+		}
+	}
 	
 }

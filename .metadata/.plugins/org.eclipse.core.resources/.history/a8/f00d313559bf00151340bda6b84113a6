@@ -12,7 +12,7 @@ public class GasStation {
 	private String name;
 	private int MAX_SELLING_VIGNETTES = 400;
 	double turnoverForToday;
-	private Vignette[] vignettes = new Vignette[MAX_SELLING_VIGNETTES];
+	Vignette[] vignettes = new Vignette[MAX_SELLING_VIGNETTES];
 	
 	//construktor za benzinostancia
 	GasStation(String name){

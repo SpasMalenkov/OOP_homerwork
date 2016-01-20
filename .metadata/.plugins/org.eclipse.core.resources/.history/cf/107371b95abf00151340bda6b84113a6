@@ -93,7 +93,7 @@ public class Driver {
 		this.venchiles[index].setDriver(this);
 		System.out.println(this.getName() + " has " + count + " venchiles right now, has " + this.getMoney() 
 			+ " money left and is driving at the moment " + this.venchiles[index].getModel() + ".");
-		for(int i = 0; i < MAX_VENCHILES_OWNED; i++){
+		for(int i = 0; i < ; i++){
 			if(this.venchiles[i].getVignette() != null){
 				if(this.venchiles[i].getVignette().getExpiryDate().before(now)){
 					System.out.println(this.getName() + " has venchile model " + this.venchiles[i].getModel() + " with year of manifacturing "
@@ -109,23 +109,19 @@ public class Driver {
 	}
 	
 	//printirane na kanionite s iztekli vinetki
-	//tuk ne mojah da se opravq...
-//	public void printTrucksWithExpiredVignettes(){
-//		Calendar calendar = Calendar.getInstance();
-//		Date now = calendar.getTime();
-//		
-//			for(Venchile v : this.getVenchiles()){
-//				if(v != null){
-//					Class<? extends Venchile> c = v.getClass();
-//					if(c.equals(Truck.class)){
-//						for(int i = 0; i < MAX_VENCHILES_OWNED; i++){
-//						if(this.venchiles[i].getVignette().getExpiryDate().before(now)){
-//							System.out.println(v.getModel() + " " + this.venchiles[i].getVignette().getExpiryDate());
-//						}
-//					}
-//				}
-//			}
-//		}
-//	}
+	public void printTrucksWithExpiredVignettes(){
+		Calendar calendar = Calendar.getInstance();
+		Date now = calendar.getTime();
+		for(int i = 0; i < MAX_VENCHILES_OWNED; i++){
+			for(Venchile v : this.getVenchiles()){
+				if(v != null){
+					Class<? extends Venchile> c = v.getClass();
+					if(c.equals(Truck.class)){
+						System.out.println(v.getModel() + " " + this.venchiles[i].getVignette().getExpiryDate().before(now));
+					}
+				}
+			}
+		}
+	}
 	
 }

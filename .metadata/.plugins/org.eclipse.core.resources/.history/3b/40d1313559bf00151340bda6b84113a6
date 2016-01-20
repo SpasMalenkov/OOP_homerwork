@@ -5,7 +5,7 @@ public class Venchile {
 	private String model;
 	private Vignette vignette;
 	private int year;
-	private Driver driver;
+	Driver driver;
 	
 	//konstruktor s parametri
 	public Venchile(String model, int year) {
