@@ -1,0 +1,6 @@
+1453263011612	Extract method 'findVignette'
+1453263547343	Extract method 'findTheExactPrice'
+1453263762598	Extract constant 'PRICE_FOR_MONTH'
+1453263776753	Extract constant 'PRICE_FOR_YEAR'
+1453269257356	Extract constant 'MAX_OWNED_VENCHILES_PER_DRIVER'
+1453269903526	Extract method 'generateRandomVenchile'

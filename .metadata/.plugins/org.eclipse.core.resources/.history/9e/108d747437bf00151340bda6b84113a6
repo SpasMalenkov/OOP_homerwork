@@ -1,0 +1,105 @@
+package test.task.vignette;
+
+import java.text.SimpleDateFormat;
+
+public class Vignette {
+	
+	private static final int PRICE_FOR_YEAR = 60;
+	private static final int PRICE_FOR_MONTH = 10;
+	private static final int[] PRICE_FOR_WEEK = {5, 7, 9};
+	private SimpleDateFormat dateOfIssue;
+	private SimpleDateFormat expiryDate;
+	private String color;
+	private int validity;
+	private int price;
+	
+	
+	Vignette(String color){
+		this.setColor(color);
+	}
+	
+	
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice() {
+		String venchile;
+		if(this.color.equalsIgnoreCase("car")){
+			venchile = "car";
+			findTheExactPrice(venchile);
+		}else if(this.color.equalsIgnoreCase("truck")){
+			venchile = "truck";
+			findTheExactPrice(venchile);
+		}else if(this.color.equalsIgnoreCase("autobus")){
+			venchile = "autobus";
+			findTheExactPrice(venchile);
+		}
+	}
+
+
+	private void findTheExactPrice(String venchile) {
+		int index = 0;
+		if(venchile.equals("car")){
+			index = 0;
+		}else if(venchile.equals("truck")){
+			index = 1;
+		}else if(venchile.equals("autobus")){
+			index = 2;
+		}
+		if(this.validity == 7){
+			this.price = PRICE_FOR_WEEK[index];
+		}else if(this.validity == 30){
+			this.price = PRICE_FOR_MONTH*PRICE_FOR_WEEK[index];
+		}else if(this.validity == 365){
+			this.price = PRICE_FOR_YEAR*PRICE_FOR_WEEK[index];
+		}
+	}
+
+
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		if(color.equalsIgnoreCase("car")){
+			this.color = color;
+		}else if(color.equalsIgnoreCase("truck")){
+			this.color = color;
+		}else if(color.contentEquals("autobus")){
+			this.color = color;
+		}
+	}
+	
+	
+	public int getValidity() {
+		return validity;
+	}
+	public void setValidity(int validity) {
+		if(validity == 7 || validity == 30 || validity == 365){
+			this.validity = validity;
+		}
+	}
+	
+	
+	public void setOnFrontGlass(Venchile venchile){
+		if(venchile != null){
+			Class<? extends Venchile> c = venchile.getClass();
+			if(c.equals(Car.class)){
+				System.out.println("Set on the glass for 5 seconds.");
+			}else if(c.equals(Truck.class)){
+				System.out.println("Set on the glass for 10 seconds.");
+			}else if(c.equals(Autobus.class)){
+				System.out.println("Set on the glass for 20 seconds.");
+			}
+		}	
+	}
+	
+	public boolean setOnGlass(Venchile venchile){
+		if(venchile != null){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+}

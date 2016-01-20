@@ -6,13 +6,13 @@ public class Venchile {
 	private Vignette vignette;
 	private int year;
 	
-	
+	//konstruktor s parametri
 	public Venchile(String model, int year) {
 		this.setModel(model);
 		this.setYear(year);
 	}
 	
-	
+	//zadavane na modela
 	public String getModel() {
 		return model;
 	}
@@ -22,7 +22,7 @@ public class Venchile {
 		}
 	}
 	
-	
+	//zadavane na godinata
 	public int getYear() {
 		return year;
 	}
@@ -32,16 +32,11 @@ public class Venchile {
 		}
 	}
 	
-	
+	//zadavane na vinetkata
 	public void setVignette(Vignette vignette){
-		if(!vignette.equals(null)){
-			if(vignette.setOnGlass(this) == true){
-				vignette.setOnFrontGlass(this);
-				this.vignette = vignette;
-			}
-		}
+		this.vignette = vignette;
 	}
-	public void getVignette(){
-		System.out.println(vignette.getColor());
+	public Vignette getVignette(){
+		return vignette;
 	}
 }
