@@ -1,12 +1,13 @@
 package test.task.vignette;
 
+import java.text.ParseException;
 import java.util.Random;
 
 public class DemoProgram {
 
 	private static final int MAX_OWNED_VENCHILES_PER_DRIVER = 10;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		
 		GasStation omv = new GasStation("OMV");
 		
@@ -20,9 +21,9 @@ public class DemoProgram {
 		
 		createVenchiles(venchiles);
 		
-//		for(int i = 0; i < drivers.length; i++){
-//			System.out.println(drivers[i].getName() + " "+ drivers[i].getMoney());
-//		}
+		for(int i = 0; i < drivers.length; i++){
+			System.out.println(drivers[i].getName() + " "+ drivers[i].getMoney());
+		}
 		
 //		displayInfo(venchiles);
 		
@@ -56,7 +57,7 @@ public class DemoProgram {
 		
 		System.out.println();
 		
-		System.out.println("The starting turnover for today is " + omv.getTurnoverForToday() + ".");
+//		System.out.println("The starting turnover for today is " + omv.getTurnoverForToday() + ".");
 		
 		System.out.println();
 		
@@ -74,6 +75,8 @@ public class DemoProgram {
 		System.out.println();
 		
 		omv.printVignette();
+		
+		
 	}
 	
 	//dobavqne na prevozni sredstva na shofiorite,
@@ -126,7 +129,7 @@ public class DemoProgram {
 	}
 	
 	//metod za kupuvane na vinetki po uslovie?!
-	static void purchaseVignettes(Driver[] drivers){
+	static void purchaseVignettes(Driver[] drivers) throws ParseException{
 		for(int i = 0; i < drivers.length; i++){
 			if(i % 3 == 0){
 				int count = 0;
@@ -136,7 +139,7 @@ public class DemoProgram {
 						if(count < 2){
 							days = 7;
 						}else if(count == 2){
-							days = 30;
+							days = 31;
 						}else if(count > 2){
 							days = 365;
 						}
@@ -151,8 +154,8 @@ public class DemoProgram {
 				for(int j = 0; j < MAX_OWNED_VENCHILES_PER_DRIVER; j++){
 					if(count < 3){
 						days = 7;
-					}else if(count >= 3 && count <= 6){
-						days = 30;
+					}else if(count >= 3 && count <= 6){ //tuk neshto zabiva i mi dava null
+						days = 31;
 					}else if(count < MAX_OWNED_VENCHILES_PER_DRIVER){
 						days = 365;
 					}
@@ -162,10 +165,10 @@ public class DemoProgram {
 			}
 		}
 	}
-
+	
 	//napravih gi za vseki sluchai no mi krashvaha i za momenta sum gi zakomentiral
 	//generirane na proizvolni prevozni sredstva
-//	private static int generateRandomVenchile() {
+//	static int generateRandomVenchile() {
 //		return (int)(Math.random() * (9 - 1) + 1);
 //	}
 	

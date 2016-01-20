@@ -5,6 +5,7 @@ public class Venchile {
 	private String model;
 	private Vignette vignette;
 	private int year;
+	Driver driver;
 	
 	//konstruktor s parametri
 	public Venchile(String model, int year) {
@@ -39,4 +40,9 @@ public class Venchile {
 	public Vignette getVignette(){
 		return vignette;
 	}
+	
+	public void setDriver(Driver driver){
+		this.driver = driver;
+	}
+	
 }

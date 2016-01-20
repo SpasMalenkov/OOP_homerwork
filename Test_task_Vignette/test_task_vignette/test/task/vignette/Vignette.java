@@ -1,5 +1,7 @@
 package test.task.vignette;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -8,8 +10,8 @@ public class Vignette {
 	private static final int PRICE_FOR_YEAR = 60;
 	private static final int PRICE_FOR_MONTH = 10;
 	private static final int[] PRICE_FOR_WEEK = {5, 7, 9};
-	private LocalDate dateOfIssue;
-	private LocalDate expiryDate;
+	private Date dateOfIssue;
+	private Date expiryDate;
 	private String color;
 	private int validity;
 	private int price;
@@ -49,7 +51,7 @@ public class Vignette {
 		}
 		if(this.validity == 7){
 			this.price = PRICE_FOR_WEEK[index];
-		}else if(this.validity == 30){
+		}else if(this.validity == 31){
 			this.price = PRICE_FOR_MONTH*PRICE_FOR_WEEK[index];
 		}else if(this.validity == 365){
 			this.price = PRICE_FOR_YEAR*PRICE_FOR_WEEK[index];
@@ -75,7 +77,7 @@ public class Vignette {
 		return validity;
 	}
 	public void setValidity(int validity) {
-		if(validity == 7 || validity == 30 || validity == 365){
+		if(validity == 7 || validity == 31 || validity == 365){
 			this.validity = validity;
 		}
 	}
@@ -94,12 +96,19 @@ public class Vignette {
 		}	
 	}
 
-	public LocalDate getDateOfIssue() {
+	public Date getDateOfIssue() {
 		return dateOfIssue;
 	}
-	public void setDateOfIssue(LocalDate localDate) {
-		this.dateOfIssue = localDate;
+	public void setDateOfIssue(Date dateOfIssue) {
+		this.dateOfIssue = dateOfIssue;
 	}
 	
+	
+	public Date getExpiryDate() {
+		return expiryDate;
+	}
+	public void setExpiryDate(Date expiryDate) throws ParseException{
+		this.expiryDate = expiryDate;
+	}
 	
 }

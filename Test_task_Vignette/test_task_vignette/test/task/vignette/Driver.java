@@ -1,5 +1,9 @@
 package test.task.vignette;
 
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
+
 public class Driver {
 	
 	private final int MAX_VENCHILES_OWNED = 10;
@@ -22,7 +26,7 @@ public class Driver {
 	}
 	
 	//kupuvane na edna vinetka
-	public void buyVignette(int index, int days){
+	public void buyVignette(int index, int days) throws ParseException{
 		Vignette vignetteForVenchile = this.gasStation.sellVignette(venchiles[index], days);
 		if(vignetteForVenchile.getPrice() < this.getMoney()){
 			this.setMoney(this.getMoney() - vignetteForVenchile.getPrice());
@@ -71,16 +75,30 @@ public class Driver {
 	
 	//printirane na prevoznite sredstva
 	public void displayVenchiles(){
+		int count = 0;
+		Calendar calendar = Calendar.getInstance();
+		Date now = calendar.getTime();
+		for(int i = 0; i < MAX_VENCHILES_OWNED; i++){
+			if(!this.venchiles[i].equals(null)){
+				count++;
+			}
+		}
+		int index = (int)(Math.random()*(9 - 0) + 0);
+		this.venchiles[index].setDriver(this);
+		System.out.println(this.getName() + " has " + count + " venchiles right now, has " + this.getMoney() 
+			+ " money left and is driving at the moment " + this.venchiles[index].getModel() + ".");
 		for(int i = 0; i < MAX_VENCHILES_OWNED; i++){
 			if(this.venchiles[i].getVignette() != null){
-				System.out.println(this.getName() + " has venchile model " + this.venchiles[i].getModel() + " with year of manifacturing "
-						+ this.venchiles[i].getYear() + " which has vignette " + this.venchiles[i].getVignette().getColor() 
-						+ " for " + this.venchiles[i].getVignette().getValidity() + " days for price " 
-						+ this.venchiles[i].getVignette().getPrice() + " and has date of issue " + this.venchiles[i].getVignette().getDateOfIssue() + ".");
-			}else{
-				System.out.println(this.getName() + " has venchile model "
-						+ this.venchiles[i].getModel()  + " with year of manifacturing " + this.venchiles[i].getYear() + " without vignette.");
-			}
+				if(this.venchiles[i].getVignette().getExpiryDate().before(now)){
+					System.out.println(this.getName() + " has venchile model " + this.venchiles[i].getModel() + " with year of manifacturing "
+							+ this.venchiles[i].getYear() + " which has vignette " + this.venchiles[i].getVignette().getColor() 
+							+ " for " + this.venchiles[i].getVignette().getValidity() + " days for price " 
+							+ this.venchiles[i].getVignette().getPrice() + " and has expiration date " + this.venchiles[i].getVignette().getExpiryDate() + ".");
+				}
+			}//else{
+//				System.out.println(this.getName() + " has venchile model "
+//						+ this.venchiles[i].getModel()  + " with year of manifacturing " + this.venchiles[i].getYear() + " without vignette.");
+//			}
 		}
 	}
 	

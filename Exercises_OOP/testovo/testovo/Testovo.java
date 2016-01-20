@@ -62,7 +62,7 @@ public class Testovo {
 		Date dateOfIssue = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").parse(string);
 		System.out.println(dateOfIssue);
 		
-		int days = (int)(Math.random() * (365 - 7) + 7);
+		int days = (int)(Math.random() * (31 - 7) + 7);
 		if(days <= 15){
 			days = 7;
 		}else if(days > 15 && days <= 31){
@@ -74,17 +74,21 @@ public class Testovo {
 		String string2;
 		Date expirationDate = null;
 		
+		int year1 = dateOfIssue.getYear() + 1900;
+		int month1 = dateOfIssue.getMonth();
+		int day1 = dateOfIssue.getDay();
+		
 		if(days == 7){
-			day += 7;
-			string2 = year + "-" + month + "-" + day + " 08:34:55.705";
+			day1 += 7;
+			string2 = year1 + "-" + month1 + "-" + day1 + " 08:34:55.705";
 			expirationDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").parse(string2);
 		}else if(days == 31){
-			day += 31;
-			string2 = year + "-" + month + "-" + day + " 08:34:55.705";
+			day1 += 31;
+			string2 = year1 + "-" + month1 + "-" + day1 + " 08:34:55.705";
 			expirationDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").parse(string2);
 		}else if(days == 365){
 			day += 365;
-			string2 = year + "-" + month + "-" + day + " 08:34:55.705";
+			string2 = year1 + "-" + month1 + "-" + day1 + " 08:34:55.705";
 			expirationDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").parse(string2);
 		}
 		
