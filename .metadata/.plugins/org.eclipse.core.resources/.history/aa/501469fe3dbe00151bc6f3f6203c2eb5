@@ -1,0 +1,12 @@
+package test.task.vignette;
+
+public class DemoProgram {
+
+	public static void main(String[] args) {
+		
+		Venchile car = new Car("Audi", 2010);
+		
+		System.out.println(Car.class.getClass());
+	}
+
+}

@@ -1,0 +1,10 @@
+package test.task.vignette;
+
+public class Venchile {
+	
+	private String model;
+	private Vignette vignette;
+	private int year;
+	
+	
+}

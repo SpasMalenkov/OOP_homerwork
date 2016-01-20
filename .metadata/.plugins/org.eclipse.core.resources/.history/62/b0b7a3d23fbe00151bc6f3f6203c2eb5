@@ -1,0 +1,12 @@
+package test.task.vignette;
+
+import java.text.SimpleDateFormat;
+
+public class GasStation {
+	
+	private SimpleDateFormat dateOfIssue;
+	private String color;
+	private int validity;
+	
+	
+}

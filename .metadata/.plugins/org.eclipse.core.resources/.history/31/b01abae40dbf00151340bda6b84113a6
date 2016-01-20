@@ -1,0 +1,68 @@
+package test.task.vignette;
+
+import java.util.Random;
+
+public class DemoProgram {
+
+	public static void main(String[] args) {
+		
+		Driver driver1 = new Driver();
+		
+		GasStation omv = new GasStation("OMV");
+		
+//		omv.printVignette();
+		
+		Driver[] drivers = new Driver[20];
+		
+		createDrivers(drivers);
+		
+		Venchile[] venchiles = new Venchile[200];
+		
+		createVenchiles(venchiles);
+		
+		for(int i = 0; i < venchiles.length; i++){
+			System.out.println(venchiles[i].getModel() + " " + venchiles[i].getYear());
+		}
+		
+		for(int i = 0; i < drivers.length; i++){
+			System.out.println(drivers[i].getName() + " "+ drivers[i].getMoney());
+		}
+	}
+	
+	
+	
+	private static void createVenchiles(Venchile[] venchiles) {
+		int index = 0;
+		for(int i = 0; i < venchiles.length; i++){
+			if(i % 3 == 0){
+				index = i;
+			}
+			if(i - index == 0){
+				venchiles[i] = new Car("Car" + i, (int)(Math.random() * (2015 - 1970) + 1970));	
+			}else if(i - index == 1){
+				venchiles[i] = new Truck("Truck" + i, (int)(Math.random() * (2015 - 1970) + 1970));
+			}else if(i - index == 1){
+				venchiles[i] = new Autobus("Autobus" + i, (int)(Math.random() * (2015 - 1970) + 1970));
+			}
+		}
+	}
+
+	static void createDrivers(Driver[] drivers){
+		for(int i = 0; i < drivers.length; i++){
+			drivers[i] = new Driver();
+			drivers[i].setMoney((int)(Math.random() * (1000 - 10) + 10));
+			drivers[i].setName("Driver" + i);
+		}
+	}
+	
+	
+	static void getClassVenchile(Venchile[] venchile){
+		Class<? extends Venchile[]> c = venchile.getClass();
+		if(c.equals(Car.class)){
+			System.out.println(venchile.getClass().getSimpleName());
+		}
+	}
+	
+	
+	
+}

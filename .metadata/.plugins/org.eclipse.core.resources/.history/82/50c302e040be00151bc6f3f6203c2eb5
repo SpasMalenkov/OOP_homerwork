@@ -1,0 +1,32 @@
+package test.task.vignette;
+
+import java.text.SimpleDateFormat;
+
+public class Vignette {
+	
+	private SimpleDateFormat dateOfIssue;
+	private String color;
+	private int validity;
+	
+	public void setOnFrontGlass(Venchile venchile){
+		if(venchile != null){
+			Class<? extends Venchile> c = venchile.getClass();
+			if(c.equals(Car.class)){
+				System.out.println("Set on the glass for 5 seconds.");
+			}else if(c.equals(Truck.class)){
+				System.out.println("Set on the glass for 10 seconds.");
+			}else if(c.equals(Autobus.class)){
+				System.out.println("Set on the glass for 20 seconds.");
+			}
+		}
+		
+	}
+	public boolean setOnGlass(Venchile venchile){
+		if(venchile != null){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+}

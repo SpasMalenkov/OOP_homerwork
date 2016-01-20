@@ -1,0 +1,18 @@
+package test.task.vignette;
+
+public class DemoProgram {
+
+	public static void main(String[] args) {
+		
+		Venchile car = new Car("Audi", 2010);
+		
+		
+		
+	}
+	
+	static void getClassVenchile(Venchile venchile){
+		if(venchile.equals(Car.class)){
+			System.out.println(venchile.getClass().getName());
+		}
+	}
+}

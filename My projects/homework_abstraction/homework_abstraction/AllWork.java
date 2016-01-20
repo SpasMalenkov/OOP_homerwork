@@ -21,7 +21,7 @@ public class AllWork {
 			System.out.println("There is no free places for tasks.");
 		}
 	}
-
+	
 	public Task getNextTask(){
 		if(currentUnassignedTask <= MAX_PLACES_FOR_TASKS - 1 && tasks[currentUnassignedTask].freeTask == true){
 			return tasks[currentUnassignedTask];
@@ -51,7 +51,5 @@ public class AllWork {
 			return false;
 		}
 	}
-	
-	
 	
 }

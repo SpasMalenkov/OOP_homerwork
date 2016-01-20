@@ -1,0 +1,11 @@
+package test.task.vignette;
+
+public class GasStation {
+	
+	private final int MAX_SELLING_VIGNETTES = 300;
+	double turnoverForToday;
+	Vignette[] vignettes = new Vignette[MAX_SELLING_VIGNETTES];
+	
+	
+	
+}

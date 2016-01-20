@@ -1,0 +1,68 @@
+package test.task.vignette;
+
+public class GasStation {
+	
+	private final int MAX_SELLING_VIGNETTES = 10000;
+	double turnoverForToday;
+	Vignette[] vignettes = new Vignette[MAX_SELLING_VIGNETTES];
+	
+	GasStation(){
+		this.createVignettes();
+	}
+	
+	public void sellVignette(Venchile venchile){
+		
+	}
+	
+	private void createVignettes(){
+		int count = 0;
+		int index = 0;
+		for(int i = 0; i < MAX_SELLING_VIGNETTES; i++){
+			if(i % 3 == 0){
+				index = i;
+			}
+			if(i - index == 0){
+				vignettes[i] = new Vignette("red");
+			}else if(i - index == 1){
+				vignettes[i] = new Vignette("green");
+			}else if(i - index == 2){
+				vignettes[i] = new Vignette("blue");
+			}
+		}
+		
+		for(int i = 0; i < MAX_SELLING_VIGNETTES; i++){
+			if(count == 0){
+				vignettes[i].setValidity(7);	//red
+			}else if(count == 1){
+				vignettes[i].setValidity(30);	//green
+			}else if(count == 2){
+				vignettes[i].setValidity(365);	//blue
+			}else if(count == 3){
+				vignettes[i].setValidity(365);	//red
+			}else if(count == 4){
+				vignettes[i].setValidity(7);	//green
+			}else if(count == 5){
+				vignettes[i].setValidity(30);	//blue
+			}else if(count == 6){
+				vignettes[i].setValidity(30);	//red
+			}else if(count == 7){
+				vignettes[i].setValidity(365);	//green
+			}else if(count == 8){
+				vignettes[i].setValidity(7);	//blue
+			}
+			count++;
+			if(count == 9){
+				count = 0;
+			}
+		}
+	}
+	
+	public void printVignette(){
+		for(int i = 0; i < MAX_SELLING_VIGNETTES; i++){
+			if(!vignettes[i].equals(null)){
+				System.out.println(this.vignettes[i].getColor() + " " + this.vignettes[i].getValidity() + " " + i);
+			}
+		}
+	}
+	
+}

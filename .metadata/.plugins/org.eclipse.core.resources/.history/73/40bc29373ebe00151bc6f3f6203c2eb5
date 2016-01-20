@@ -1,0 +1,20 @@
+package test.task.vignette;
+
+public class DemoProgram {
+
+	public static void main(String[] args) {
+		
+		Venchile car = new Car("Audi", 2010);
+		
+		getClassVenchile(car);
+		
+	}
+	
+	static void getClassVenchile(Venchile venchile){
+		
+		Class<? extends Venchile> c = venchile.getClass();
+		if(venchile.equals(Car.class)){
+			System.out.println(venchile.getClass().getSimpleName());
+		}
+	}
+}
