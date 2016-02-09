@@ -4,3 +4,5 @@
 1453263776753	Extract constant 'PRICE_FOR_YEAR'
 1453269257356	Extract constant 'MAX_OWNED_VENCHILES_PER_DRIVER'
 1453269903526	Extract method 'generateRandomVenchile'
+1453289994773	Delete element
+1453290265371	Copy package
