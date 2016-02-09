@@ -1,9 +1,0 @@
-package carpartsshop;
-
-public interface IRelationshipCarPartsShopCustomer {
-	
-	default void addCar(Car car){
-	}
-	default void addCarParts(CarParts carparts){
-	}
-}

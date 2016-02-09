@@ -1,9 +1,0 @@
-package supermarket;
-
-public class Computer extends ElectronicsProduct{
-	
-	Computer(String name, double price, int quantity, int ageRestriction, int guaranteePeriod) {
-		super(name, price, quantity, ageRestriction, guaranteePeriod);
-	}
-	
-}

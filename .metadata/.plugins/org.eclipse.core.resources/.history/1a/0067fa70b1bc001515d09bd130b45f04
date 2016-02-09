@@ -1,9 +1,0 @@
-package supermarket;
-
-public class Appliance extends ElectronicsProduct{
-
-	Appliance(String name, double price, int quantity, int ageRestriction, int guaranteePeriod) {
-		super(name, price, quantity, ageRestriction, guaranteePeriod);
-	}
-
-}
