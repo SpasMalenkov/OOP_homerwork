@@ -1,0 +1,61 @@
+package Homework3;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Scheduler {
+	private static Scheduler current;
+	private Queue<ITask> queue;
+
+	private Scheduler() {
+		queue = new LinkedList<>();
+		current = this;
+	}
+
+	private static void createScheduler() {
+		if (current == null) {
+			new Scheduler();
+		}
+	}
+
+	public static Scheduler getScheduler() {
+		if (current == null) {
+			createScheduler();
+		}
+		return current;
+	}
+
+	public void push(ITask currentTaskToBeAdded) {
+		if (currentTaskToBeAdded != null) {
+			this.queue.add(currentTaskToBeAdded);
+		}
+	}
+
+	public static void main(String[] args) {
+		Scheduler scheduler = getScheduler();
+		ITask[] zadachi = new ITask[10];
+		for (int i = 0; i < zadachi.length; i++) {
+			int random = (int) (Math.random() * 4);
+			switch (random) {
+			case 0:
+				zadachi[i] = new Kopai("Task" + i);
+				break;
+			case 1:
+				zadachi[i] = new Chisti("Task" + i);
+				break;
+			case 2:
+				zadachi[i] = new Ucha("Task" + i);
+				break;
+			case 3:
+				zadachi[i] = new PiqRakiq("Task" + i);
+				break;
+			}
+			scheduler.queue.add(zadachi[i]);
+			System.out.println(
+					"Vkarvam zadachata " + zadachi[i].toString() + " = " + zadachi[i].getClass().getSimpleName());
+		}
+		while (!scheduler.queue.isEmpty()) {
+			scheduler.queue.poll().doWork();
+		}
+	}
+}

@@ -2,22 +2,32 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="buy" key="selection"/>
+		<item value="Client, HashSet&lt;Product&gt;" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="setBankAccount"/>
+			<item value="toString"/>
+			<item value="increaseBankReserve"/>
+			<item value="MIN_BANK_FUNDS"/>
+			<item value="1000000"/>
+			<item value="map"/>
+			<item value="pool"/>
 			<item value="buy"/>
 		</list>
 		<list key="replacehistory">
+			<item value="mapLetters"/>
+			<item value="map"/>
+			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="380" key="DIALOG_HEIGHT"/>
-		<item value="720" key="DIALOG_X_ORIGIN"/>
+		<item value="583" key="DIALOG_X_ORIGIN"/>
 		<item value="260" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

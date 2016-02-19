@@ -1,0 +1,21 @@
+package Homework3;
+
+public class Ucha extends Task {
+	private int chasove;
+
+	public Ucha(String name) {
+		super(name);
+		chasove = (int) (Math.random() * 12);
+	}
+
+	public int getChasove() {
+		return chasove;
+	}
+
+	@Override
+	public void doWork() {
+		super.doWork();
+		System.out.println("Gledam videata i si pravq domashnite.");
+	}
+
+}

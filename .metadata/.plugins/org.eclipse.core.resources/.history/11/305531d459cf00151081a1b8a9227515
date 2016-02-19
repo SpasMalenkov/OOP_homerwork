@@ -1,0 +1,24 @@
+package Homework3;
+
+public abstract class Task implements ITask {
+	private String name;
+
+	public Task(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public void doWork() {
+		System.out.print(name + " = ");
+	}
+
+	@Override
+	public String toString() {
+		return this.name;
+	}
+
+}

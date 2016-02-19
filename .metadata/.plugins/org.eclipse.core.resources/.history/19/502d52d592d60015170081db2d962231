@@ -1,0 +1,10 @@
+package warehouse;
+
+public interface IWareHouse {
+
+	boolean isFullBanan();
+	
+	boolean isEmptyBanan();
+
+	void storeFruit(Fruit fruit) throws WarehouseException;
+}

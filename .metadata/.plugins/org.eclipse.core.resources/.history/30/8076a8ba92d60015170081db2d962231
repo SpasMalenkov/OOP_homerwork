@@ -1,0 +1,9 @@
+package warehouse;
+
+public class WarehouseException extends Exception {
+
+	public WarehouseException(String string) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

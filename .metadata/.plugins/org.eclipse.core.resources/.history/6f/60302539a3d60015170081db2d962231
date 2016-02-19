@@ -1,0 +1,8 @@
+package warehouse;
+
+public abstract class Product{
+	
+	public abstract int getTimeToProduce();
+	
+	public abstract String getProductName();
+}

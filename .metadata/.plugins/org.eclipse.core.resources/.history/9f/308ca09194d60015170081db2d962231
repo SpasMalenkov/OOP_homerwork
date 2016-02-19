@@ -1,0 +1,32 @@
+package warehouse;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
+
+
+public class WareHouse implements IWareHouse{
+
+	private static final int MIN_CAPACITY_OF_BANAN = 10;
+	
+	private Map<String, Stack<Fruit>> fruits = new HashMap<String, Stack<Fruit>>();
+	
+	@Override
+	public boolean isFullBanan() {
+		return fruits.get("banan").size() > MIN_CAPACITY_OF_BANAN;
+	}
+
+	@Override
+	public boolean isEmptyBanan() {
+		return fruits.get("banan").isEmpty();
+	}
+	
+	@Override
+	public void storeFruit(Fruit fruit) throws FruitException{
+		if(fruit.equals(null)){
+			throw new FruitException("Ne moga da dobavq prazen plod");
+		}else{
+			fruits.get("banan").push(fruit);
+		}
+	}
+}

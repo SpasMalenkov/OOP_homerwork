@@ -1,0 +1,52 @@
+package warehouse;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Stack;
+
+
+public class WareHouse implements IWareHouse{
+
+	private static final int MIN_CAPACITY_OF_BANAN = 10;
+	private static final String BANAN = "banan";
+	
+	private Map<String, Queue<Fruit>> fruits = new HashMap<String, Queue<Fruit>>();
+	
+	
+	WareHouse(){
+		fruits.put(BANAN, Queue<new Fruit("banan", this)>);
+	}
+	
+	@Override
+	public boolean isFullBanan() {
+		return fruits.get(BANAN).size() > MIN_CAPACITY_OF_BANAN;
+	}
+
+	@Override
+	public boolean isEmptyBanan() {
+		return fruits.get(BANAN).isEmpty();
+	}
+	
+	@Override
+	public void storeFruit(Fruit fruit) throws FruitException{
+		if(fruit.equals(null)){
+			throw new FruitException("Ne moga da dobavq prazen plod");
+		}
+		synchronized(fruits.get(BANAN)){
+			fruits.get("banan").offer(fruit);
+		}
+	}
+	
+	@Override
+	public Fruit sellFruit() throws FruitException{
+		synchronized(fruits.get(BANAN)){
+			if(fruits.get(BANAN).isEmpty()){
+				throw new FruitException("Nqmame kolichestvo za zarejdane!");
+			}
+			return fruits.get(BANAN).remove();
+		}
+	}
+	
+	
+}

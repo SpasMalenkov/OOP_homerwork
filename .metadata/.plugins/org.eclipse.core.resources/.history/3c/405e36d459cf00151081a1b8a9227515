@@ -1,0 +1,23 @@
+package Homework3;
+
+public class PiqRakiq extends Task {
+	private int kilaRakiq;
+
+	public PiqRakiq(String name) {
+		super(name);
+		kilaRakiq = (int) (Math.random() * 3 + 2);
+	}
+
+	@Override
+	public void doWork() {
+		super.doWork();
+		System.out.println("Vreme e za PARTY!!!");
+		System.out.println("Ima " + kilaRakiq + " kila rakiq.");
+
+	}
+
+	public int getKilaRakiq() {
+		return kilaRakiq;
+	}
+
+}

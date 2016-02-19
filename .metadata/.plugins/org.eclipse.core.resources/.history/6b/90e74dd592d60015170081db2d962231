@@ -1,0 +1,55 @@
+package warehouse;
+
+public class Fruit extends Product implements Runnable{
+	
+	private static final int KOLKO_DA_ZAREDI = 25;
+	private IWareHouse sklad;
+	private String name;
+	
+	public Fruit(String name, IWareHouse sklad) throws FruitException{
+		this.setProductName(name);
+		this.sklad = sklad;
+	}
+	
+	@Override
+	public void run(){
+		
+		for(int count = 1; count < KOLKO_DA_ZAREDI && !Thread.currentThread().isInterrupted();){
+			while(sklad.isFullBanan()){
+				System.out.println("Nqma nujda ot zarejdane.");
+				try {
+					synchronized (sklad) {
+						sklad.wait();
+					}
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+					return;
+				}
+			}
+			
+			for(int count2 = 1; count2 < KOLKO_DA_ZAREDI; count++){
+				try {
+					
+				}
+			}
+		}
+	}
+	
+	
+	public void setProductName(String name) throws FruitException{
+		if(name == null && name.equals("")){
+			throw new FruitException("Nqma takuv plod.");
+		}else{
+			this.name = name;
+		}
+	}
+	
+	public String getProductName(){
+		return this.name;
+	}
+	
+	public int getTimeToProduce() {
+		return 100;
+	}
+	
+}

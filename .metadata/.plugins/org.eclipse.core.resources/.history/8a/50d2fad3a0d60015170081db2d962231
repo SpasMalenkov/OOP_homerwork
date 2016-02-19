@@ -1,0 +1,72 @@
+package warehouse;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
+
+public class WareHouse implements IWareHouse {
+	
+	private static final String BANAN = "banan";
+	private static final String ORANGE = "orange";
+	private static final String APPLE = "apple";
+	private static final String POTATO = "potato";
+	private static final String EGGPLANT = "eggplant";
+	private static final String CUCUMBER = "cucumber";
+	
+	Map<String, Stack<Product>> product = new HashMap<String, Stack<Product>>();
+	Map<String, Stack<Fruit>> fruits = new HashMap<String, Stack<Fruit>>();
+	
+	//znam che e grozno ama ne se setih za drug nachin
+	Stack<Product> banan = new Stack<Product>();
+	Stack<Product> orange = new Stack<Product>();
+	Stack<Product> apple = new Stack<Product>();
+	Stack<Product> potato = new Stack<Product>();
+	Stack<Product> eggplant = new Stack<Product>();
+	Stack<Product> cucumber = new Stack<Product>();
+//	private void beginingStorageFruit(Stack<Product> fruit, String name){
+//		for(int i = 1; i <= 15; i++){
+//			try {
+//				fruit.push(new Fruit(name + i, this));
+//			} catch (FruitException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	}
+	private void beginingStorageVegetable(Stack<Product> product, String name){
+		for(int i = 1; i <= 15; i++){
+			try {
+				product.push(new Vegetable(name + i, this));
+			} catch (FruitException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+	
+	WareHouse(){
+		beginingStorageVegetable(banan, BANAN);
+		beginingStorageVegetable(orange, ORANGE);
+		beginingStorageVegetable(apple, APPLE);
+		beginingStorageVegetable(potato, POTATO);
+		beginingStorageVegetable(eggplant, EGGPLANT);
+		beginingStorageVegetable(cucumber, CUCUMBER);
+		product.put(BANAN, banan);
+		product.put(ORANGE, orange);
+		product.put(APPLE, apple);
+		product.put(POTATO, potato);
+		product.put(EGGPLANT, eggplant);
+		product.put(CUCUMBER, cucumber);
+	}
+	
+	public void printStorage(){
+		System.out.println(this.product.get(ORANGE).peek().getProductName() + " " + this.product.get(ORANGE).size());
+		System.out.println(this.product.get(BANAN).peek().getProductName() + " " +  this.product.get(BANAN).size());
+		System.out.println(this.product.get(APPLE).peek().getProductName() + " " +  this.product.get(APPLE).size());
+		System.out.println(this.product.get(POTATO).peek().getProductName() + " " +  this.product.get(POTATO).size());
+		System.out.println(this.product.get(EGGPLANT).peek().getProductName() + " " +  this.product.get(EGGPLANT).size());
+		System.out.println(this.product.get(CUCUMBER).peek().getProductName() + " " +  this.product.get(CUCUMBER).size());
+	}
+	
+//	private void checkStorage()
+}

@@ -1,0 +1,49 @@
+package warehouse;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
+
+public class WareHouse implements IWareHouse {
+	
+	private static final String BANAN = "banan";
+	private static final String ORANGE = "orange";
+	private static final String APPLE = "apple";
+	private static final String POTATO = "potato";
+	private static final String EGGPLANT = "eggplant";
+	private static final String CUCUMBER = "cucumber";
+	
+	Stack<Fruit> banan = new Stack<Fruit>();
+	Stack<Fruit> orange = new Stack<Fruit>();
+	Stack<Fruit> apple = new Stack<Fruit>();
+	
+	private void beginingStorage(Stack<Fruit> fruit, String name){
+		for(int i = 1; i <= 15; i++){
+			try {
+				fruit.push(new Fruit(name + i, this));
+			} catch (FruitException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	Map<String, Stack<Vegetable>> vegetables = new HashMap<String, Stack<Vegetable>>();
+	Map<String, Stack<Fruit>> fruits = new HashMap<String, Stack<Fruit>>();
+	
+	WareHouse(){
+		beginingStorage(banan, "banan");
+		beginingStorage(orange, "orange");
+		beginingStorage(apple, "apple");
+		fruits.put(BANAN, banan);
+		fruits.put(ORANGE, orange);
+		fruits.put(APPLE, apple);
+	}
+	
+	public void printStorage(){
+		System.out.println(this.fruits.get(ORANGE).peek().getProductName() + " " + this.fruits.get(ORANGE).size());
+		System.out.println(this.fruits.get(BANAN).peek().getProductName() + " " +  this.fruits.get(BANAN).size());
+		System.out.println(this.fruits.get(APPLE).peek().getProductName() + " " +  this.fruits.get(APPLE).size());
+	}
+	
+	
+}

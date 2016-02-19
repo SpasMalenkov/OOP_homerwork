@@ -1,0 +1,17 @@
+package warehouse;
+
+public class Demo {
+
+	public static void main(String[] args) throws FruitException {
+		
+		IWareHouse sklad = new WareHouse();
+		for(int i = 1; i<= 10; i++){
+			Thread banan = new Thread(new Fruit("banan", sklad));
+			banan.start();
+			new Thread(new Shop(sklad, banan)).start();
+			
+		}
+
+	}
+
+}

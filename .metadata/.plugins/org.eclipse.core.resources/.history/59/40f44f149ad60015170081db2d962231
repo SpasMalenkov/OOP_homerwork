@@ -1,0 +1,13 @@
+package warehouse;
+
+public class Demo {
+
+	public static void main(String[] args) throws FruitException {
+		
+		WareHouse sklad = new WareHouse();
+		
+		System.out.println(sklad.printStorage());
+
+	}
+
+}

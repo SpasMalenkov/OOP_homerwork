@@ -1,0 +1,5 @@
+package warehouse;
+
+public class FruitException extends Exception {
+
+}

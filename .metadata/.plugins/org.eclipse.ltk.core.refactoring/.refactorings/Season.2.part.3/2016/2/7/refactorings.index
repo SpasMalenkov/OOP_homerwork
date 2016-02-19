@@ -1,1 +1,12 @@
 1454981566887	Delete element
+1455041985381	Rename package 'homeworks'
+1455128347210	Rename package 'homework1'
+1455128376283	Rename package 'Homework1'
+1455131481086	Extract constant 'NUMBER_ONE'
+1455146452445	Extract constant 'MIN_BANK_FUNDS'
+1455155279061	Extract constant 'MIN_CLIENTS_CASH'
+1455157177345	Extract constant 'NO_MORE_MONTHS_FOR_PAYMENT'
+1455158840121	Extract constant 'MIN_PERCANTAGE_FOR_CREDIT'
+1455167607825	Rename package 'homework1'
+1455167631920	Rename package 'homework2'
+1455167649091	Rename package 'homework3'

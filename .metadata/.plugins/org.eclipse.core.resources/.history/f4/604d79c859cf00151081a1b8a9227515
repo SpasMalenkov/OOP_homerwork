@@ -1,0 +1,21 @@
+package Homework3;
+
+public class Chisti extends Task {
+	private int brStai;
+
+	public Chisti(String name) {
+		super(name);
+		brStai = (int) (Math.random() * 6 + 1);
+	}
+
+	@Override
+	public void doWork() {
+		super.doWork();
+		System.out.println("Chistq " + brStai + " stai.");
+	}
+
+	public int getBrStai() {
+		return brStai;
+	}
+
+}

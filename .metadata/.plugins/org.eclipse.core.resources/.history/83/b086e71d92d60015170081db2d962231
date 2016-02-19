@@ -1,0 +1,17 @@
+package warehouse;
+
+public abstract class Product implements Runnable{
+	
+	public void run() {
+		System.out.println("Zarejdam " + getProductName());
+		try {
+			Thread.sleep(getTimeToProduce());
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public abstract int getTimeToProduce();
+	
+	public abstract String getProductName();
+}

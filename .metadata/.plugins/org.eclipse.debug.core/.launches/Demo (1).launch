@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<<<<<<< HEAD
-<listEntry value="/Season.2.part.3/Nested_classes/nested/classes/Demo.java"/>
-=======
-<listEntry value="/Test_task_Vignette/test_task_vignette/test/task/vignette/Demo.java"/>
->>>>>>> 97d58074f10ac26f14444891eb3db55e2fd79ccf
+<listEntry value="/Season.2.part.3/HomeWork/bank_homework_unfinished/Demo.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<<<<<<< HEAD
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="nested.classes.Demo"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="bank_homework_unfinished.Demo"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Season.2.part.3"/>
-=======
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="test.task.vignette.Demo"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Test_task_Vignette"/>
->>>>>>> 97d58074f10ac26f14444891eb3db55e2fd79ccf
 </launchConfiguration>

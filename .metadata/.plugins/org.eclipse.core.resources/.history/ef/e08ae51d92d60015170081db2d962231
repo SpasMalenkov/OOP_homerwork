@@ -1,0 +1,8 @@
+package warehouse;
+
+public interface IWareHouse {
+
+	boolean isFull();
+	
+	boolean isEmpty();
+}
