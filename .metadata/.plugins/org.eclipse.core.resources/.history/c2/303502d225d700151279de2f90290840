@@ -1,6 +1,8 @@
 package warehouse;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Supplier implements Runnable{
 	
@@ -13,15 +15,15 @@ public class Supplier implements Runnable{
 	
 	@Override
 	public void run() {
-		while(warehouse.getQuantityIsLow().isEmpty()){
+		while(true){
 			List<Product> products = warehouse.getQuantityIsLow();
 			if(products.size() > 0){
 				for(Product product : products){
 					try{
-						System.out.println(Thread.currentThread().getName() + "Zarejdam produkti v sklada.");
+						System.out.println("Zarejdam produkti v sklada.");
 						warehouse.addProduct(product, HOW_MUCH_TO_SUPPLY);
 						synchronized(warehouse){
-							System.out.println(Thread.currentThread().getName() + "Zaredih produktite.");
+							System.out.println("Zaredih produktite.");
 							warehouse.notifyAll();
 						}
 					}catch(WareHouseException | ShopException e){
@@ -29,7 +31,7 @@ public class Supplier implements Runnable{
 					}
 				}
 			}else{
-				System.out.println(Thread.currentThread().getName() + "Shte chakam da mi zvunnete da zaredq.");
+				System.out.println("Shte chakam da mi zvunnete da zaredq.");
 				try {
 					synchronized(warehouse){
 						warehouse.wait();

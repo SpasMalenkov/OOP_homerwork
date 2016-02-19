@@ -14,7 +14,7 @@ public class Client implements Runnable{
 	public void run() {
 		while(supplier.isAlive() || !shop.getWarehouse().getQuantityIsLow().isEmpty()){
 			while(shop.getWarehouse().getQuantityIsLow().isEmpty()){
-				System.out.println(Thread.currentThread().getName() + "Shte si kupq sega nqkakvi produkti.");
+				System.out.println("Shte si kupq sega nqkakvi produkti.");
 				synchronized(shop.getWarehouse()){
 					try{
 						shop.getWarehouse().wait();
@@ -60,15 +60,12 @@ public class Client implements Runnable{
 					break;
 				}
 				synchronized(shop.getWarehouse()){
-					if(!shop.getQuantityIsLow().isEmpty()){
-						Thread.sleep(1000);
-					}
 					if(shop.getWarehouse().getQuantityIsLow().isEmpty()){
-						System.out.println(Thread.currentThread().getName() + "Sega shte si kupq tozi produkt " + product.getName() + " v tova kolichestvo " + quantity);
+						System.out.println("Sega shte si kupq tozi produkt " + product.getName() + " v tova kolichestvo " + quantity);
 						this.shop.sellProduct(product, quantity);
 					}
 					if(!shop.getQuantityIsLow().isEmpty()){
-						System.out.println(Thread.currentThread().getName() + "Shte izchakam da zaredi.");
+						System.out.println("Shte izchakam da zaredi.");
 						this.shop.getWarehouse().notifyAll();
 					}
 				}

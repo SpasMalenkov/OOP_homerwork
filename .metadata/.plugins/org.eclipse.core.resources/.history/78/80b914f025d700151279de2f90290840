@@ -1,6 +1,8 @@
 package warehouse;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Supplier implements Runnable{
 	
@@ -13,7 +15,7 @@ public class Supplier implements Runnable{
 	
 	@Override
 	public void run() {
-		while(warehouse.getQuantityIsLow().isEmpty()){
+		while(true){
 			List<Product> products = warehouse.getQuantityIsLow();
 			if(products.size() > 0){
 				for(Product product : products){

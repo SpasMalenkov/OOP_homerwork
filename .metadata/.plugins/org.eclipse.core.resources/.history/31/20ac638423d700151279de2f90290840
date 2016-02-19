@@ -1,0 +1,18 @@
+package warehouse;
+
+public class Client implements Runnable{
+	
+	private IShoppingCenter shop;
+	private Thread supplier;
+	
+	Client(IShoppingCenter shop, Thread supplier){
+		this.shop = shop;
+		this.supplier = supplier;
+	}
+	
+	@Override
+	public void run() {
+		while(supplier.isAlive() || !shop.)
+	}
+
+}

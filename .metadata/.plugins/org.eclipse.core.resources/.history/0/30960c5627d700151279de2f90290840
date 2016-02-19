@@ -60,9 +60,6 @@ public class Client implements Runnable{
 					break;
 				}
 				synchronized(shop.getWarehouse()){
-					if(!shop.getQuantityIsLow().isEmpty()){
-						Thread.sleep(1000);
-					}
 					if(shop.getWarehouse().getQuantityIsLow().isEmpty()){
 						System.out.println(Thread.currentThread().getName() + "Sega shte si kupq tozi produkt " + product.getName() + " v tova kolichestvo " + quantity);
 						this.shop.sellProduct(product, quantity);
