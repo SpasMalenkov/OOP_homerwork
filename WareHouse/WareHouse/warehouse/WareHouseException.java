@@ -2,32 +2,27 @@ package warehouse;
 
 public class WareHouseException extends Exception {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5173310645918118364L;
-
 	public WareHouseException() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public WareHouseException(String arg0) {
-		super(arg0);
+	public WareHouseException(String message) {
+		super(message);
 		// TODO Auto-generated constructor stub
 	}
 
-	public WareHouseException(Throwable arg0) {
-		super(arg0);
+	public WareHouseException(Throwable cause) {
+		super(cause);
 		// TODO Auto-generated constructor stub
 	}
 
-	public WareHouseException(String arg0, Throwable arg1) {
-		super(arg0, arg1);
+	public WareHouseException(String message, Throwable cause) {
+		super(message, cause);
 		// TODO Auto-generated constructor stub
 	}
 
-	public WareHouseException(String arg0, Throwable arg1, boolean arg2, boolean arg3) {
-		super(arg0, arg1, arg2, arg3);
+	public WareHouseException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+		super(message, cause, enableSuppression, writableStackTrace);
 		// TODO Auto-generated constructor stub
 	}
 

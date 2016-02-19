@@ -1,0 +1,69 @@
+package warehouse;
+
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+public class Shop implements Runnable{
+	
+	private static final int HOW_MUCH_TO_REFILL = 15;
+	private Thread supplier;
+	private IWareHouse warehouse;
+	private Map<Product, Integer> products = new ConcurrentHashMap<Product, Integer>();
+	
+	Shop(IWareHouse warehouse, Thread supplier){
+		this.warehouse = warehouse;
+		this.supplier = supplier;
+	}
+	
+	public void addProduct(Product product, int quantity) throws WareHouseException{
+		synchronized(product){
+			if(product != null && quantity > 0 && products.containsKey(product)){
+				int newQuantity = products.get(product);
+				newQuantity += quantity;
+				products.put(product, newQuantity);
+			}else{
+				throw new WareHouseException("Can't accept that product.");
+			}
+		}
+	}
+	
+	public void sellProduct(Product product, int quantity) throws WareHouseException{
+		this.addProduct(product, -quantity);
+	}
+	
+	@Override
+	public void run() {
+		while(supplier.isAlive() || !warehouse.getQuantityIsLow().isEmpty()){
+			while(warehouse.getQuantityIsLow().isEmpty()){
+				synchronized(warehouse){
+					try{
+						warehouse.wait();
+					}catch(InterruptedException e){
+						e.printStackTrace();
+					}
+				}
+			}
+			
+			try{
+				Thread.sleep(100);
+				
+				synchronized(warehouse){
+					List<Product> products = warehouse.getQuantityIsLow();
+					if(products.size() > 0){
+						for(Product product : products){
+							try{
+								warehouse.sellProduct(product, HOW_MUCH_TO_REFILL);
+								this.addProduct(product, HOW_MUCH_TO_REFILL);
+							}catch(WareHouseException e){
+								e.printStackTrace();
+							}
+						}
+					}
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+	}	
+}

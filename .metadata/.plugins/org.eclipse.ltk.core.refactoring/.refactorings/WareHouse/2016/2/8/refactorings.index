@@ -9,3 +9,6 @@
 1455886816018	Delete element
 1455886841248	Extract interface 'IShoppingCenter'
 1455887933392	Extract constant 'HOW_MUCH_TO_REFILL'
+1455889719659	Delete element
+1455892856567	Delete element
+1455892871771	Extract interface 'IWareHouse'

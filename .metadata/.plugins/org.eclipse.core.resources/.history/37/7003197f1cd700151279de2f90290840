@@ -1,0 +1,14 @@
+package warehouse;
+
+public class Client implements Runnable{
+	
+	private Shop shop;
+	
+	Client(I)
+	
+	@Override
+	public void run() {
+		
+	}
+
+}
