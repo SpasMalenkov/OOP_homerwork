@@ -1,0 +1,14 @@
+package warehouse;
+
+public class WareHouse extends ShoppingCenter implements Runnable{
+	
+	
+	
+	@Override
+	public void run() {
+		
+		
+		
+	}
+	
+}

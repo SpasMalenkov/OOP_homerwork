@@ -1,0 +1,9 @@
+package warehouse;
+
+public abstract class Product implements Runnable{
+	
+	protected String name;
+	protected IWareHouse sklad;
+	
+	
+}

@@ -2,15 +2,11 @@ package warehouse;
 
 public class Demo {
 
-	public static void main(String[] args) throws ProductException {
+	public static void main(String[] args) {
 		
-		IWareHouse sklad = new WareHouse();
-		for (int i = 1; i <= 5; i++) {
-			Thread banan = new Thread(new Fruit("banan", sklad));
-			banan.start();
-		}
+		WareHouse warehouse = new WareHouse();
+		ShoppingCenter shop1 = new Shop(warehouse);
 		
-		sklad.printStorage();
 
 	}
 

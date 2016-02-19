@@ -1,29 +1,41 @@
 package warehouse;
 
-public abstract class Product implements Runnable{
+public class Product{
 	
-	protected String name;
-	protected IWareHouse sklad;
+	private final String name;
+	private final FoodProduct type;
 	
-	Product(String name, IWareHouse sklad) throws ProductException{
-		this.setProductName(name);
-		this.sklad = sklad;
+	public Product(String name, FoodProduct type) {
+		this.name = name;
+		this.type = type;
 	}
-	
-	public String getProductName(){
-		return this.name;
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		return result;
 	}
-	
-	public int getTimeToProduce() {
-		return 100;
-	}
-	
-	public void setProductName(String name) throws ProductException{
-		if(name == null && name.equals("")){
-			throw new ProductException("Nqma takuv product.");
-		}else{
-			this.name = name;
-		}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (type != other.type)
+			return false;
+		return true;
 	}
 	
 	

@@ -1,0 +1,9 @@
+package warehouse;
+
+public class Supplier {
+
+	public Supplier() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,3 +1,11 @@
 1455836138993	Delete element
 1455846368256	Extract constant 'MAX_CAPACITY'
 1455846447260	Extract constant 'PERCANTAGE'
+1455881604782	Delete elements
+1455885118725	Delete element
+1455885792989	Extract constant 'STARTING_CAPACITY'
+1455886779715	Extract interface 'IShoppingCenter'
+1455886784356	Delete element
+1455886816018	Delete element
+1455886841248	Extract interface 'IShoppingCenter'
+1455887933392	Extract constant 'HOW_MUCH_TO_REFILL'

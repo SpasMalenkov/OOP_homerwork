@@ -1,0 +1,33 @@
+package warehouse;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+public abstract class ShoppingCenter {
+	
+	private static final int STARTING_CAPACITY = 15;
+	private Map<Product, Integer> products =
+			new ConcurrentHashMap<Product, Integer>();
+	
+	
+	public ShoppingCenter() {
+		products.put(new Product("Banan", FoodProduct.FRUITS), STARTING_CAPACITY);
+		products.put(new Product("Orange", FoodProduct.FRUITS), STARTING_CAPACITY);
+		products.put(new Product("Apple", FoodProduct.FRUITS), STARTING_CAPACITY);
+		
+		products.put(new Product("Potato", FoodProduct.VEGETABLES), STARTING_CAPACITY);
+		products.put(new Product("Eggplant", FoodProduct.VEGETABLES), STARTING_CAPACITY);
+		products.put(new Product("Cucumber", FoodProduct.VEGETABLES), STARTING_CAPACITY);
+		
+		products.put(new Product("Pork", FoodProduct.MEATS), STARTING_CAPACITY);
+		products.put(new Product("Beef", FoodProduct.MEATS), STARTING_CAPACITY);
+		products.put(new Product("Chicken", FoodProduct.MEATS), STARTING_CAPACITY);
+	}
+
+
+	public void addProduct(Product product, int quantity){
+		if(product != null && quantity > 0){
+			
+		}
+	}
+}
