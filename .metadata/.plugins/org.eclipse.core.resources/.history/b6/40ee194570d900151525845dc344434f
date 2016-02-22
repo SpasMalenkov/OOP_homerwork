@@ -1,5 +1,0 @@
-package music_shop;
-
-public enum MusicInstrument {
-
-}

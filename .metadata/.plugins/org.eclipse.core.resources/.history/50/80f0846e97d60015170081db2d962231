@@ -1,6 +1,0 @@
-package warehouse;
-
-public class WareHouse implements IWareHouse {
-
-	
-}

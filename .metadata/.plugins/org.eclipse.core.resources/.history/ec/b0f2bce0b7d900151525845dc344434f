@@ -16,9 +16,8 @@ public class Shop implements IShop {
 	private static final int CONSTANT_FOR_INSTRUMENT_PRICE = 1000;
 	private static final int STARTING_QUANTITY = 10;
 	
-	//neznam do kolko sum bil prav v reshenieto si da vzema synchronized HashMap, no chetoh che kogato polzvam nishki bilo po-dobre ot obiknovenia hashMap
-	//kolebaeh se mejdu nego i ConcurrentHashMap, no izbrah synchronized hash map tui kato dava dostup samo na edna nishka do mapa, makar che moje da dovede do
-	//supernichestvo mejdu nishkite
+	//neznam do kolko sum bil prav v reshenieto si da vzema concurentHashMap, no chetoh che kogato polzvam nishki bilo po-dobre ot obiknovenia hashMap
+	//kolebaeh se mejdu nego i synchronized hash map, no izbrah concurrentHashMap tui kato e
 	Map<Instrument, Integer> products = Collections.synchronizedMap(new HashMap<Instrument, Integer>());
 	Map<Instrument, Integer> soldInstruments = Collections.synchronizedMap(new HashMap<Instrument, Integer>());
 	
