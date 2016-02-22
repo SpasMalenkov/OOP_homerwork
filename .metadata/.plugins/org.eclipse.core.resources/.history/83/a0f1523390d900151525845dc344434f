@@ -1,0 +1,53 @@
+package music_shop;
+
+public class Customer implements Runnable{
+	
+	private IShop shop;
+	
+	Customer(IShop shop){
+		this.shop = shop;
+	}
+	
+	public void run() {
+		try{
+			Thread.sleep(5000);
+			
+			int quantity = 1;
+			int number = (int) (Math.random() * 9);
+			Instrument product = null;
+			switch(number){
+			case 0:
+				product = new Instrument("violin", MusicInstrument.STRINGS);
+				break;
+			case 1:
+				product = new Instrument("viola", MusicInstrument.STRINGS);
+				break;
+			case 2:
+				product = new Instrument("contrabass", MusicInstrument.STRINGS);
+				break;
+			case 3:
+				product = new Instrument("drums", MusicInstrument.PERCUSSIVE);
+				break;
+			case 4:
+				product = new Instrument("timpani", MusicInstrument.PERCUSSIVE);
+				break;
+			case 5: 
+				product = new Instrument("tarambuka", MusicInstrument.PERCUSSIVE);
+				break;
+			case 6:
+				product = new Instrument("bagpipe", MusicInstrument.BRASS);
+				break;
+			case 7:
+				product = new Instrument("waldhorn", MusicInstrument.BRASS);
+				break;
+			case 8:
+				product = new Instrument("saxophone", MusicInstrument.BRASS);
+				break;
+			}
+			this.shop.sellInstrument(product, quantity);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		
+	}
+}

@@ -5,3 +5,7 @@
 1456162687160	Extract interface 'IShop'
 1456162695863	Delete element
 1456162710615	Extract interface 'IShop'
+1456176857800	Extract constant 'CONSTANT_FOR_INSTRUMENT_PRICE'
+1456176886769	Extract constant 'CONSTANT_FOR_SHOPS_MONEY'
+1456176924816	Extract constant 'MIN_QUANTITY'
+1456180096821	Delete element
