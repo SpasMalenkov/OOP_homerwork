@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/Example-car_person_carshop/Car_person_carshop/car_person_example/Demo.java"/>
+<listEntry value="/Music_instruments_shop/src/demo.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="car_person_example.Demo"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Example-car_person_carshop"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="demo"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Music_instruments_shop"/>
 </launchConfiguration>

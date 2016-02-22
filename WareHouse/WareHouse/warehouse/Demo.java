@@ -32,8 +32,9 @@ public class Demo {
 				case 7:
 				case 8:
 					new Thread(new Client(shops[2], supplier)).start();
-				count++;
+				
 				}
+				count++;
 			}
 		}
 		

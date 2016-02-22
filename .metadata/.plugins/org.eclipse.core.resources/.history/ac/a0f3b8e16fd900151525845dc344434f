@@ -1,0 +1,13 @@
+package music_shop;
+
+public class Instrument {
+	
+	private String name;
+	private String type;
+	private int price;
+	
+	Product(String name, String type, int price){
+		
+	}
+	
+}

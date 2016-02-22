@@ -1,0 +1,42 @@
+package music_shop;
+
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class Instrument {
+	
+	private String name;
+	private MusicInstrument type;
+	private AtomicInteger price;
+	
+	Instrument(String name, MusicInstrument type, AtomicInteger price){
+		this.type = type;
+		this.name = name;
+		this.setPrice(price);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public MusicInstrument getType() {
+		return type;
+	}
+
+	public AtomicInteger getPrice() {
+		return price;
+	}
+
+	public void setPrice(AtomicInteger price) {
+		
+		this.price = price;
+		
+	}
+
+	@Override
+	public String toString() {
+		return "\n Instrument:" + name + ", type:" + type + ", price:" + price;
+	}
+	
+	
+	
+}

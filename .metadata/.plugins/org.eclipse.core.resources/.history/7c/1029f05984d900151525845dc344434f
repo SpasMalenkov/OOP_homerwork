@@ -1,0 +1,12 @@
+package music_shop;
+
+public class Demo {
+
+	public Demo() {
+		
+		Shop shop = new Shop();
+		
+		System.out.println(shop.SortedByType());
+	}
+
+}
