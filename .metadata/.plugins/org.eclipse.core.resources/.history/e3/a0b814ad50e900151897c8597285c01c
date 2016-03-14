@@ -1,0 +1,11 @@
+package test3;
+
+public class CourierFromMainOffice extends CourierToMainOffice {
+
+	public CourierFromMainOffice(String name, String gsm, long number, String address, CityOffice cityOffice)
+			throws ClientException {
+		super(name, gsm, number, address, cityOffice);
+		// TODO Auto-generated constructor stub
+	}
+
+}

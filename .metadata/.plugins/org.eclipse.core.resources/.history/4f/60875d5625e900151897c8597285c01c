@@ -1,0 +1,6 @@
+package smart.courier.office;
+
+public enum CitiesName {
+	PLOVDIV,VARNA,SOFIA,RUSE
+	
+}

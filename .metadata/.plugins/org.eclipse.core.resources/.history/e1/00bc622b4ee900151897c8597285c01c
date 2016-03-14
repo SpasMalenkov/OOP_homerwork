@@ -1,0 +1,55 @@
+package test3;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class MainOffice {
+
+	Map<CityName, List<Pratka>> pratkiZaOfisite = new TreeMap<CityName, List<Pratka>>();
+	
+	
+	public MainOffice(){
+		pratkiZaOfisite.put(CityName.SOFIA, new LinkedList<Pratka>());
+		pratkiZaOfisite.put(CityName.PLOVDIV, new LinkedList<Pratka>());
+		pratkiZaOfisite.put(CityName.VARNA, new LinkedList<Pratka>());
+		pratkiZaOfisite.put(CityName.RUSE, new LinkedList<Pratka>());
+	}
+	
+	public void addPratka(List<Pratka> pratkiOtOfisite){
+		ArrayList list = (ArrayList) pratkiOtOfisite;
+		Iterator it = list.iterator();
+		if(pratkiOtOfisite != null){
+			synchronized(pratkiZaOfisite){
+				while(it.hasNext()){
+					Pratka pratkaZaDobavqne = (Pratka) it.next();
+					if(pratkiZaOfisite.containsKey(pratkaZaDobavqne.getPoluchatel().getCity())){
+						pratkiZaOfisite.get(CityName.SOFIA).add(pratkaZaDobavqne);
+					}
+					if(pratkiZaOfisite.containsKey(pratkaZaDobavqne.getPoluchatel().getCity())){
+						pratkiZaOfisite.get(CityName.PLOVDIV).add(pratkaZaDobavqne);
+					}
+					if(pratkiZaOfisite.containsKey(pratkaZaDobavqne.getPoluchatel().getCity())){
+						pratkiZaOfisite.get(CityName.VARNA).add(pratkaZaDobavqne);
+					}
+					if(pratkiZaOfisite.containsKey(pratkaZaDobavqne.getPoluchatel().getCity())){
+						pratkiZaOfisite.get(CityName.RUSE).add(pratkaZaDobavqne);
+					}
+				}
+			}
+		}
+	}
+
+}
+
+
+if(!archive.containsKey(LocalDate.now())){
+	archive.put(LocalDate.now(), new LinkedList<MailObject>());
+}else{
+	archive.get(LocalDate.now()).addAll(mailobjects);
+}

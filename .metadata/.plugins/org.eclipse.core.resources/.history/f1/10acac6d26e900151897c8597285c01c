@@ -1,0 +1,12 @@
+package test3;
+
+public class Address {
+	
+	private CityName city;
+	private String address;
+	
+	public Address(CityName city, String address){
+		this.city = city;
+		this.address = address;
+	}
+}

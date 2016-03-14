@@ -1,0 +1,33 @@
+package test3;
+
+public class Staff extends Client implements Runnable{
+
+	private CityOffice city;
+	private int numberOfPackagesForSending;
+	
+	public Staff(String name, String gsm, long number, String address, CityOffice city) throws ClientException {
+		super(name, gsm, number, address, city.getName());
+		this.city = city;
+	}
+
+	@Override
+	public void run() {
+		System.out.println("Receiving a package.");
+		try {
+			sendPackage();
+		} catch (ClientException e) {
+			e.printStackTrace();
+		}
+		System.out.println("I gave it for sending.");
+		
+	}
+
+	private void sendPackage() throws ClientException {
+		Client podatel = new Client("Ivan Ivanov", "0898789789", 9105056565l, "ulica 'purva' nomer 9", CityName.SOFIA);
+		
+		
+		
+	}
+	
+	
+}

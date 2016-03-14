@@ -1,0 +1,32 @@
+package test3;
+
+public class Staff extends Client implements Runnable{
+
+	private CityOffice city;
+	private int numberOfPackagesForSending;
+	
+	public Staff(String name, String gsm, long number, String address, CityOffice city) {
+		super(name, gsm, number, address);
+		this.city = city;
+	}
+
+	@Override
+	public void run() {
+		try{
+			System.out.println("Receiving a package.");
+			sendPackage();
+			System.out.println("I gave it for sending.");
+		}catch(CityOfficeException e){
+			e.printStackTrace();
+		}
+		
+	}
+
+	private void sendPackage() {
+		Pratka pratka;
+		
+		
+	}
+	
+	
+}

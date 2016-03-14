@@ -1,0 +1,85 @@
+package test3;
+
+import java.util.List;
+
+public class Staff extends Client implements Runnable{
+	
+	private final static int MIN_NUMBER_FOR_SENDING = 5;
+	private CityOffice cityOffice;
+	private int numberOfPackagesForSending;
+	private static int naKudeDaPrata = 1;
+	
+	public Staff(String name, String gsm, long number, String address, CityOffice cityOffice) throws ClientException {
+		super(name, gsm, number, address, cityOffice.getName());
+		this.cityOffice = cityOffice;
+	}
+
+	@Override
+	public void run() {
+		synchronized(cityOffice){
+			try{
+				System.out.println("Poluchih paket.");
+				sendPackage();
+				System.out.println("Dadoh go da se izprati do centralen.");
+			}catch(CityOfficeException | ClientException e){
+				e.printStackTrace();
+			}
+		}
+		
+		while(true){
+			if(cityOffice.getNumberOfPachagesFromCentral() >= MIN_NUMBER_FOR_SENDING){
+				synchronized(cityOffice){
+					List<Pratka> pratkiZaKlienti = cityOffice.sendToReceiver();
+					for(Pratka p : pratkiZaKlienti){
+						try {
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						System.out.println("Predavam pratka do " + p.getPoluchatel());
+					}
+				}
+			}
+		}
+	}
+
+	private void sendPackage() throws ClientException, CityOfficeException {
+		Client podatel = new Client("Ivan Ivanov", "0898789789", 9105056565l, "ulica 'purva' nomer 9", this.getCity());
+		Client poluchatel = null;
+		if(this.getCity().equals(CityName.SOFIA)){
+			if(naKudeDaPrata == 1){
+				poluchatel = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.RUSE);
+			}
+			if(naKudeDaPrata == 2 || naKudeDaPrata == 3){
+				poluchatel = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.PLOVDIV);
+			}
+			if(naKudeDaPrata == 4 || naKudeDaPrata == 5){
+				poluchatel = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.VARNA);
+			}
+		}
+		if(this.getCity().equals(CityName.VARNA)){
+			if(naKudeDaPrata >= 6 && naKudeDaPrata  < 10){
+				poluchatel = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.SOFIA);
+			}
+			if(naKudeDaPrata >= 10 && naKudeDaPrata  < 12){
+				poluchatel = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.PLOVDIV);
+			}
+			if(naKudeDaPrata >= 13 && naKudeDaPrata  < 16){
+				poluchatel = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.RUSE);
+			}
+		}
+		naKudeDaPrata++;
+		Pratka pratka = new Pratka(podatel, poluchatel, "some stuff");
+		if(pratka.getPoluchatel() != null){
+			cityOffice.addPratka(pratka);
+		}else{
+			throw new ClientException("Ne moje da se podava paket bez poluchatel.");
+		}
+		System.out.println(pratka);
+	}
+
+	public CityOffice getCityOffice() {
+		return cityOffice;
+	}
+	
+}

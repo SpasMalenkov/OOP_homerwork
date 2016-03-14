@@ -1,0 +1,31 @@
+package test3;
+
+public class CourierFromMainOffice extends CourierToMainOffice {
+	
+	public CourierFromMainOffice(String name, String gsm, long number, String address, CityOffice cityOffice, MainOffice mainOffice) throws ClientException {
+		super(name, gsm, number, address, cityOffice, mainOffice);
+	}
+	
+	@Override
+	public void run(){
+		while(true){
+			while(getMainOffice().returnNumberOfPackages(this.getCity()) <= NUMBER_OF_MIN_PACKAGES){
+				synchronized(getMainOffice()){
+					try{
+						System.out.println("Chakam za pratki ot glavnia ofis v Turnovo.");
+						getMainOffice().wait();
+					}catch(InterruptedException e){
+						e.printStackTrace();
+						return;
+					}
+				}
+			}
+			
+			System.out.println("Vzemam pratki za ofisami");
+			
+			try{
+				
+			}
+		}
+	}
+}

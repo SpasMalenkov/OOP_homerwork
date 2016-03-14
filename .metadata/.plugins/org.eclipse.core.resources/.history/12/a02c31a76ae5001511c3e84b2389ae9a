@@ -1,0 +1,5 @@
+package postOffice;
+
+public class Letter {
+
+}

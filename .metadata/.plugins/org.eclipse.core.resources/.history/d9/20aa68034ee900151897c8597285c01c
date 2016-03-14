@@ -1,0 +1,29 @@
+package test3;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+import postOffice.MailObject;
+
+public class MainOffice {
+
+	Map<CityName, List<Pratka>> pratkiZaOfisite = new TreeMap<CityName, List<Pratka>>();
+		
+	public void addPratka(List<Pratka> pratkiOtOfisite){
+		if(pratkiOtOfisite != null){
+			synchronized(pratkiZaOfisite){
+				for(Iterator<Pratka> it : pratkiOtOfisite.iterator(); it.hasNext()){
+					Pratka pratka = (Pratka)it.next();
+				}
+				if(!pratkiZaOfisite.containsKey(CityName.SOFIA)){
+					
+				}
+			}
+		}
+	}
+
+}

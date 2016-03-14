@@ -1,0 +1,33 @@
+package test3;
+
+import java.util.Iterator;
+import java.util.List;
+
+public class Demo {
+
+	public static void main(String[] args) throws ClientException, InterruptedException {
+		
+		CityOffice sofia = new CityOffice(CityName.SOFIA);
+		CityOffice plovdiv = new CityOffice(CityName.PLOVDIV);
+		CityOffice varna = new CityOffice(CityName.VARNA);
+		CityOffice ruse = new CityOffice(CityName.RUSE);
+		
+		for(int i = 1; i <= 5; i++){
+			Thread staff1 = new Thread(new Staff("Ivan Ivanov", "0898789789", 9105056565l, "ulica 'purva' nomer 9", sofia));
+//			Thread staff2 = new Thread(new Staff("Ivan Ivanov", "0898789789", 9105056565l, "ulica 'purva' nomer 9", plovdiv));
+//			Thread staff3 = new Thread(new Staff("Ivan Ivanov", "0898789789", 9105056565l, "ulica 'purva' nomer 9", varna));
+//			Thread staff4 = new Thread(new Staff("Ivan Ivanov", "0898789789", 9105056565l, "ulica 'purva' nomer 9", ruse));
+			
+			staff1.start();
+			
+//			staff2.start();
+//			staff3.start();
+//			staff4.start();
+			
+		}
+		Thread courier = new Thread(new CourierToMainOffice("Stoyan Stoyanov", "0898789789", 9105056565l, "ulica 'purva' nomer 9", sofia));
+		courier.start();
+		
+	}
+
+}

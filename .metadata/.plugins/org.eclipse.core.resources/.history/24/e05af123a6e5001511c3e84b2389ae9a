@@ -1,0 +1,21 @@
+package library;
+
+public class TextBook extends ReadingMaterial {
+	
+	private String author;
+	
+	public TextBook(String name, String publisher, String author) {
+		super(name, publisher);
+		this.author = author;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	@Override
+	public String toString() {
+		return "TextBook [author=" + author + ", getName()=" + getName() + ", getPublisher()=" + getPublisher() + "]";
+	}
+
+}

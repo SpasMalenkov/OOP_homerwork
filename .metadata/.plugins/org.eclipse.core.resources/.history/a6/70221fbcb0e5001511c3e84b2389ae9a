@@ -1,0 +1,16 @@
+package library;
+
+public class Client implements Runnable{
+	
+	private Library library;
+	
+	public Client(Library library){
+		this.library = library;
+	}
+	
+	@Override
+	public void run(){
+		
+	}
+	
+}

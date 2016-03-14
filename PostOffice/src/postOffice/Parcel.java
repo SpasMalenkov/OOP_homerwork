@@ -1,0 +1,75 @@
+package postOffice;
+
+public class Parcel extends MailObject{
+
+	private static final int TIME_TO_DELIVER = 1500;
+	private static final double COEFFICIENT_FOR_PRIZE = 1.5;
+	private static final int MAX_SIZE = 60;
+	private static final int NORMAL_TAX = 2;
+	private int heigth;
+	private int width;
+	private int length;
+	private boolean isFragile;
+	
+	public Parcel(Citizen sender, Citizen receiver, int h, int w, int l, boolean isFragile) {
+		super(sender, receiver);
+		this.heigth = h;
+		this.length = l;
+		this.width = w;
+		this.isFragile = isFragile;
+	}
+
+	@Override
+	public float getTax() {
+		float price = NORMAL_TAX;
+		if(overSized()){
+			price *= COEFFICIENT_FOR_PRIZE;
+		}
+		if(isFragile()){
+			price *= COEFFICIENT_FOR_PRIZE;
+		}
+		return price;
+	}
+
+	private boolean overSized() {
+		return heigth > MAX_SIZE || width > MAX_SIZE || length > MAX_SIZE;
+	}
+
+	@Override
+	public int getTimeToDeliver() {
+		return TIME_TO_DELIVER;
+	}
+
+	
+	public int getHeigth() {
+		return heigth;
+	}
+
+	public void setHeigth(int heigth) {
+		this.heigth = heigth;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getLength() {
+		return length;
+	}
+
+	public void setLength(int length) {
+		this.length = length;
+	}
+
+	public boolean isFragile() {
+		return isFragile;
+	}
+	
+	public void setFragile(boolean isFragile) {
+		this.isFragile = isFragile;
+	}
+}

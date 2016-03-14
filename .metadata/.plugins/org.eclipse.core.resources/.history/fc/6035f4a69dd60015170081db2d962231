@@ -1,8 +1,0 @@
-package warehouse;
-
-public abstract class Product implements Runnable{
-	
-	public abstract int getTimeToProduce();
-	
-	public abstract String getProductName();
-}

@@ -1,0 +1,24 @@
+package library;
+
+import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Library {
+	
+	private Map<ReadingType, Map<String, List<ReadingMaterial>>> materials;
+	
+	public Library(){
+		materials = new HashMap<>();
+		materials.put(ReadingType.BOOK, new HashMap<>());
+		materials.put(ReadingType.MAGAZINE, new HashMap<>());
+		materials.put(ReadingType.TEXTBOOK, new HashMap<>());
+		
+		materials.get(ReadingType.BOOK).put("Istoricheski", 
+				Arrays.asList(new Book(LocalDateTime.of(1963, 11, 10, 3, 34),
+				"Ivan Vazov", "Pod igoto", "Prosveta"));
+	}
+}

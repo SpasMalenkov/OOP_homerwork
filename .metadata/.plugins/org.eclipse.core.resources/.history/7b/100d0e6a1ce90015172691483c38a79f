@@ -1,0 +1,16 @@
+package test3;
+
+public class SenderReceiver {
+	
+	private String name;
+	private String gsm;
+	private long number;
+	private String address;
+	
+	public SenderReceiver(String name, String gsm, long number, String address){
+		this.name = name;
+		this.gsm = gsm;
+		this.number = number;
+		this.address = address;
+	}
+}

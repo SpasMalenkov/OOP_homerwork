@@ -1,7 +1,0 @@
-package warehouse;
-
-public abstract class Shop implements Runnable{
-	
-	private Map<Product, Integer>;
-	
-}

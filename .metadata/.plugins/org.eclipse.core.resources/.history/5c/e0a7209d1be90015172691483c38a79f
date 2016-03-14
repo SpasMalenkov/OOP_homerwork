@@ -1,0 +1,11 @@
+package test3;
+
+public class SenderReceiver {
+	
+	private String name;
+	private String GSM;
+	private long number;
+	private String address;
+	
+	public SenderReceiver
+}

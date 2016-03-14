@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Client, HashSet&lt;Product&gt;" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="getMailbox"/>
 			<item value="setBankAccount"/>
 			<item value="toString"/>
 			<item value="increaseBankReserve"/>
@@ -15,7 +16,6 @@
 			<item value="1000000"/>
 			<item value="map"/>
 			<item value="pool"/>
-			<item value="buy"/>
 		</list>
 		<list key="replacehistory">
 			<item value="mapLetters"/>

@@ -1,0 +1,23 @@
+package postOffice;
+
+public class Letter extends MailObject{
+
+	private static final float TAX = 0.5f;
+	private static final int TIME_TO_DELIVER = 1500;
+
+	public Letter(Citizen sender, Citizen receiver) {
+		super(sender, receiver);
+	}
+
+	@Override
+	public float getTax() {
+		return TAX;
+	}
+
+	@Override
+	public int getTimeToDeliver() {
+		return TIME_TO_DELIVER;
+	}
+	
+	
+}

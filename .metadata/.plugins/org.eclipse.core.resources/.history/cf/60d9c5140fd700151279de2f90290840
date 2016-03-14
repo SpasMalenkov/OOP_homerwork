@@ -1,9 +1,0 @@
-package warehouse;
-
-public class WareHouse {
-
-	public WareHouse() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

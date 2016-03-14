@@ -1,9 +1,0 @@
-package warehouse;
-
-public class IWareHouse {
-
-	public IWareHouse() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

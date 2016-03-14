@@ -1,0 +1,13 @@
+package test3;
+
+public class Courier extends Staff{
+	
+	public Courier(String name, String gsm, long number, String address, CityOffice city) {
+		super(name, gsm, number, address, city);
+	}
+	
+	@Override
+	public void run(){
+		
+	}
+}

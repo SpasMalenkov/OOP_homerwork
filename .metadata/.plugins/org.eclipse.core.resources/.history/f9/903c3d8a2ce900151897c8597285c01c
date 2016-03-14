@@ -1,0 +1,49 @@
+package test3;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class CityOffice {
+	
+	private CityName name;
+	private Map<LocalDateTime, List<Pratka>> arhiv = new TreeMap<LocalDateTime, List<Pratka>>();
+	private List<Pratka> pratki = new LinkedList<Pratka>();
+	
+	public CityOffice(CityName name) {
+		this.name = name;
+	}
+	
+	public CityName getName() {
+		return name;
+	}
+
+	public void addPratka(Pratka pratka) throws CityOfficeException{
+		if(pratka == null){
+			throw new CityOfficeException("You can't send that package!");
+		}
+		synchronized(pratki){
+			pratki.add(pratka);
+		}
+	}
+
+	public List<Pratka> getAll(){
+		List<Pratka> zaCentralen = new LinkedList<Pratka>();
+		synchronized(pratki){
+			Collections.copy(zaCentralen, pratki);
+			pratki.clear();
+		}
+		return zaCentralen;
+	}
+	
+	public Pratka printPratka(){
+		for(Iterator<Pratka> it : pratki.iterator(); it.hasNext()){
+			
+		}
+	}
+}

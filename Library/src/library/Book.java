@@ -1,0 +1,47 @@
+package library;
+
+import java.time.LocalDateTime;
+import java.util.Comparator;
+
+public class Book extends ReadingMaterial {
+	
+	private static final double TAX_TO_PAY = 2.0;
+	private static final int TIME_TO_BE_TAKEN = 3000;
+	private String author;
+	private LocalDateTime date;
+	
+	public Book(String name, String publisher, String author, LocalDateTime date) {
+		super(name, publisher);
+		this.author = author;
+		this.date = date;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public LocalDateTime getDate() {
+		return date;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [author=" + author + ", date=" + date + ", getName()=" + getName() + ", getPublisher()="
+				+ getPublisher() + "]";
+	}
+	
+	public Comparator getComparator(){
+		return new BookComparator();
+	}
+	
+	public int getSecondsForTake(){
+		return TIME_TO_BE_TAKEN;
+	}
+
+	@Override
+	public Double getPrice() {
+		return TAX_TO_PAY;
+	}
+	
+	
+}

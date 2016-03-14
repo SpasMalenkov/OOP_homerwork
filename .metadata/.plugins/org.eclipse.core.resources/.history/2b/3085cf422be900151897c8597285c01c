@@ -1,0 +1,24 @@
+package test3;
+
+import java.time.LocalDateTime;
+
+public class Pratka {
+	
+	private Client podatel;
+	private Client poluchatel;
+	private String sydyrjanie;
+	private CityName city;
+	private static int lastID = 1;
+	private final int id;
+	private LocalDateTime send;
+	
+	public Pratka(Client podatel, Client poluchatel, String sydyrjanie, CityName city){
+		this.podatel = podatel;
+		this.poluchatel = poluchatel;
+		this.sydyrjanie = sydyrjanie;
+		this.city = city;
+		this.id = lastID++;
+		this.send = LocalDateTime.now();
+	}
+	
+}

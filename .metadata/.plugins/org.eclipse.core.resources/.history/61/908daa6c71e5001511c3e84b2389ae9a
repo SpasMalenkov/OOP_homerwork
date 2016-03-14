@@ -1,0 +1,17 @@
+package postOffice;
+
+public class Postman extends Citizen {
+
+	
+	public Postman(String firstName, String lastName, String address) {
+		super(firstName, lastName, address);
+	}
+	
+	@Override
+	public void run(){
+		while(true){
+			if(getPostOffice.)
+		}
+	}
+
+}

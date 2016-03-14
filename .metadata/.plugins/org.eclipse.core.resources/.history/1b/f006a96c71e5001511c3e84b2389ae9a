@@ -1,0 +1,19 @@
+package postOffice;
+
+import java.util.LinkedList;
+
+public class Mailbox {
+	
+	private LinkedList<Letter> contents = new LinkedList<Letter>();
+	
+	public void addLetter(Letter letter) throws MailboxException {
+		if(letter == null){
+			throw new MailboxException("You can't send that letter!!");
+		}
+		
+		synchronized(contents){
+			contents.add(letter);
+		}
+	}
+	
+}

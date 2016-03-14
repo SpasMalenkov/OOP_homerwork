@@ -1,6 +1,0 @@
-
-public interface IAccount {
-
-	void withdraw(int sum);
-
-}

@@ -1,0 +1,82 @@
+package test3;
+
+public class Staff extends Client implements Runnable{
+	
+	private CityOffice cityOffice;
+	private int numberOfPackagesForSending;
+	private static int naKudeDaPrata = 1;
+	
+	public Staff(String name, String gsm, long number, String address, CityOffice cityOffice) throws ClientException {
+		super(name, gsm, number, address, cityOffice.getName());
+		this.cityOffice = cityOffice;
+	}
+
+	@Override
+	public void run() {
+		synchronized(cityOffice){
+			try{
+				System.out.println("Receiving a package.");
+				sendPackage();
+				System.out.println("I gave it for sending.");
+			}catch(CityOfficeException | ClientException e){
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private void sendPackage() throws ClientException, CityOfficeException {
+		Client podatel = new Client("Ivan Ivanov", "0898789789", 9105056565l, "ulica 'purva' nomer 9", this.getCity());
+		if(this.getCity().equals(CityName.SOFIA)){
+			Client poluchatel1 = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.RUSE);
+			Pratka pratka = new Pratka(podatel, poluchatel1, "some stuff");
+			cityOffice.addPratka(pratka);
+			Client poluchatel2 = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.PLOVDIV);
+			pratka = new Pratka(podatel, poluchatel2, "some stuff");
+			cityOffice.addPratka(pratka);
+			Client poluchatel3 = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.PLOVDIV);
+			pratka = new Pratka(podatel, poluchatel3, "some stuff");
+			cityOffice.addPratka(pratka);
+			Client poluchatel4 = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.VARNA);
+			pratka = new Pratka(podatel, poluchatel4, "some stuff");
+			cityOffice.addPratka(pratka);
+			Client poluchatel5 = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.VARNA);
+			pratka = new Pratka(podatel, poluchatel5, "some stuff");
+			cityOffice.addPratka(pratka);
+		}
+		if(this.getCity().equals(CityName.VARNA)){
+			Client poluchatel1 = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.SOFIA);
+			Pratka pratka = new Pratka(podatel, poluchatel1, "some stuff");
+			cityOffice.addPratka(pratka);
+			Client poluchatel2 = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.SOFIA);
+			pratka = new Pratka(podatel, poluchatel2, "some stuff");
+			cityOffice.addPratka(pratka);
+			Client poluchatel3 = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.SOFIA);
+			pratka = new Pratka(podatel, poluchatel3, "some stuff");
+			cityOffice.addPratka(pratka);
+			Client poluchatel4 = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.SOFIA);
+			pratka = new Pratka(podatel, poluchatel4, "some stuff");
+			cityOffice.addPratka(pratka);
+			Client poluchatel5 = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.PLOVDIV);
+			pratka = new Pratka(podatel, poluchatel5, "some stuff");
+			cityOffice.addPratka(pratka);
+			Client poluchatel6 = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.PLOVDIV);
+			pratka = new Pratka(podatel, poluchatel6, "some stuff");
+			cityOffice.addPratka(pratka);
+			Client poluchatel7 = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.RUSE);
+			pratka = new Pratka(podatel, poluchatel7, "some stuff");
+			cityOffice.addPratka(pratka);
+			Client poluchatel8 = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.RUSE);
+			pratka = new Pratka(podatel, poluchatel8, "some stuff");
+			cityOffice.addPratka(pratka);
+			Client poluchatel9 = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.RUSE);
+			pratka = new Pratka(podatel, poluchatel9, "some stuff");
+			cityOffice.addPratka(pratka);
+		}
+		
+	}
+
+	public CityOffice getCityOffice() {
+		return cityOffice;
+	}
+	
+}

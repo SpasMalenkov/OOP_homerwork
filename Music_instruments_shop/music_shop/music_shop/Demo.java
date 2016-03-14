@@ -13,6 +13,7 @@ public class Demo {
 			System.out.println(((Shop) shop).getMoney());
 			
 			for(int i = 1; i <= 10; i++){
+				
 				Thread customer = new Thread(new Customer(shop));
 				customer.start();
 			}

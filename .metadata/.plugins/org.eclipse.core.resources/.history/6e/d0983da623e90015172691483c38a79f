@@ -1,0 +1,9 @@
+package test3;
+
+public class MainOffice {
+
+	public MainOffice() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

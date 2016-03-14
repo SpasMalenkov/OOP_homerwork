@@ -1,0 +1,20 @@
+package test3;
+
+import java.util.Iterator;
+import java.util.List;
+
+public class Demo {
+
+	public static void main(String[] args) throws ClientException, InterruptedException {
+		
+		CityOffice sofia = new CityOffice(CityName.SOFIA);
+		
+		for(int i = 1; i <= 5; i++){
+			
+			Thread staff = new Thread(new Staff("Ivan Ivanov", "0898789789", 9105056565l, "ulica 'purva' nomer 9", sofia));
+			staff.start();
+		}
+		
+	}
+
+}

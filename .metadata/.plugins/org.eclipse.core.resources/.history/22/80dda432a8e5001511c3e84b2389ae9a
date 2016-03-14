@@ -1,0 +1,55 @@
+package library;
+
+import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Library {
+	
+	private Map<ReadingType, Map<String, List<ReadingMaterial>>> materials;
+	
+	public Library(){
+		materials = new HashMap<>();
+		materials.put(ReadingType.BOOK, new HashMap<>());
+		materials.put(ReadingType.MAGAZINE, new TreeMap<>());
+		materials.put(ReadingType.TEXTBOOK, new HashMap<>());
+		
+		materials.get(ReadingType.BOOK).put("Istoricheski", 
+				Arrays.asList(new Book("Ivan Vazov", "Pod igoto", "Prosveta", 
+						LocalDateTime.of(1963, 11, 10, 3, 34)),
+						new Book("Ekziuperi", "Malkia Princ", "Nov svqt", LocalDateTime.now())));
+		materials.get(ReadingType.MAGAZINE).put("Modni", 
+				Arrays.asList(new Magazine("Cosmos", "Anubis", LocalDateTime.now(), 3),
+						new Magazine("Blqsuk", "Bulvest", LocalDateTime.now(), 5)));
+		materials.get(ReadingType.TEXTBOOK).put("Matematika", 
+				Arrays.asList(new TextBook("Algebra za 5 klas", "Anubis", "Ganio Hristev"),
+						new TextBook("Stamat Stoynov", "Integrali za 3 klas", "Prosveta")));
+		
+	}
+	
+	public void showCatalog(ReadingType type){
+		Map<String, List<ReadingMaterial>> catalog = materials.get(type);
+		for(String category : catalog.keySet()){
+			System.out.println(category + " : ");
+			
+			List<ReadingMaterial> list = catalog.get(category);
+			list.sort(list.get(0).getComparator());
+			
+			for(ReadingMaterial rm : list){
+				System.out.println(rm);
+			}
+		}
+	}
+	
+	void getReadingMaterial(ReadingMaterial readingMaterial) throws LibraryException{
+		if(readingMaterial != null && readingMaterial.canBeTaken() && 
+				!readingMaterial.isTaken()){
+			readingMaterial.takeIt(true);
+		}else{
+			throw new LibraryException("Can take that right now!");
+		}
+	}
+}

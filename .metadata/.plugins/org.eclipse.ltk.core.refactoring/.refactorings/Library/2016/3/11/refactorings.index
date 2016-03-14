@@ -1,0 +1,6 @@
+1457494182423	Extract constant 'TIME_TO_WAIT'
+1457494481821	Extract constant 'TIME_TO_BE_TAKEN'
+1457494559798	Extract constant 'TIME_TO_BE_TAKEN'
+1457495406970	Extract constant 'TAX_TO_PAY'
+1457495419718	Extract constant 'TAX_TO_PAY'
+1457495791064	Extract constant 'PERCENT'

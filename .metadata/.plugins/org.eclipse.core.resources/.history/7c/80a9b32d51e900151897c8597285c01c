@@ -1,0 +1,49 @@
+package test3;
+
+public class Staff extends Client implements Runnable{
+	
+	private CityOffice cityOffice;
+	private int numberOfPackagesForSending;
+	private static int naKudeDaPrata = 1;
+	
+	public Staff(String name, String gsm, long number, String address, CityOffice cityOffice) throws ClientException {
+		super(name, gsm, number, address, cityOffice.getName());
+		this.cityOffice = cityOffice;
+	}
+
+	@Override
+	public void run() {
+		try{
+			System.out.println("Receiving a package.");
+			sendPackage();
+			System.out.println("I gave it for sending.");
+		}catch(CityOfficeException | ClientException e){
+			e.printStackTrace();
+		}
+		
+	}
+
+	private void sendPackage() throws ClientException, CityOfficeException {
+		Client podatel = new Client("Ivan Ivanov", "0898789789", 9105056565l, "ulica 'purva' nomer 9", CityName.SOFIA);
+		Client poluchatel = null;
+		
+		if(naKudeDaPrata == 1){
+			poluchatel = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.RUSE);
+		}
+		if(naKudeDaPrata == 2 || naKudeDaPrata == 3){
+			poluchatel = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.PLOVDIV);
+		}
+		if(naKudeDaPrata == 4 || naKudeDaPrata == 5){
+			poluchatel = new Client("Vasil Vasilev", "0888789789", 9103035656l, "ulica 'devet' nomer 1", CityName.VARNA);
+		}
+		naKudeDaPrata++;
+		Pratka pratka = new Pratka(podatel, poluchatel, "some stuff");
+		cityOffice.addPratka(pratka);
+		System.out.println(pratka);
+	}
+
+	public CityOffice getCityOffice() {
+		return cityOffice;
+	}
+	
+}

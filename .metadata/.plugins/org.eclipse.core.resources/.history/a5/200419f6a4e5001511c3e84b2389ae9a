@@ -1,0 +1,9 @@
+package library;
+
+public class BookComparator {
+
+	public BookComparator() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

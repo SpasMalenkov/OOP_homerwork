@@ -1,0 +1,28 @@
+package library;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class LibraryMan extends Thread {
+	
+	private static final int TIME_TO_WAIT = 1000;
+	private Map<ReadingMaterial, Double> materialsToFollow;
+	
+	public LibraryMan(){
+		this.setDaemon(true);
+		materialsToFollow = new HashMap<ReadingMaterial, Double>();
+	}
+	
+	@Override
+	public void run(){
+		while(true){
+			try {
+				Thread.sleep(TIME_TO_WAIT);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			
+		}
+	}
+}

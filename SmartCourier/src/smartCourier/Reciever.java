@@ -1,0 +1,12 @@
+package smartCourier;
+
+public class Reciever extends Citizen
+{
+
+	public Reciever(String name, String gsm, String personalNumber, Adress adress) {
+		super(name, gsm, personalNumber, adress);
+		// TODO Auto-generated constructor stub
+	}
+
+	
+}

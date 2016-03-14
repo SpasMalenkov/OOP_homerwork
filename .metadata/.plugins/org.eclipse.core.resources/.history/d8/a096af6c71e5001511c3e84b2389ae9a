@@ -1,0 +1,50 @@
+package postOffice;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class PostOffice {
+	
+	private Map<LocalDateTime, List<MailObject>> archive = new TreeMap<LocalDateTime, List<MailObject>>();
+	private List<MailObject> repository = new ArrayList<MailObject>();
+	
+	//dobavi
+	public void addMailObject(MailObject mail) {
+		this.addMailObject(Arrays.asList(mail));
+	}
+
+	//dobavi v arhiv i repo
+	private void addMailObject(List<MailObject> mailobjects) {
+		if(mailobjects != null){
+			synchronized(repository){
+				repository.addAll(mailobjects);
+			}
+			synchronized(archive){
+				if(!archive.containsKey(LocalDateTime.now())){
+					archive.put(LocalDateTime.now(), new LinkedList<MailObject>());
+				}else{
+					archive.get(LocalDateTime.now()).addAll(mailobjects);
+				}
+			}
+		}
+	}
+	
+	//vzemane na poshtata
+	public List<MailObject> takeMails(int number){
+		synchronized(repository){
+			if(number > repository.size()){
+				number = repository.size();
+			}
+			List<MailObject> result = repository.subList(0, number);
+			repository.removeAll(result);
+			return result;
+		}
+	}
+
+}

@@ -1,0 +1,22 @@
+package library;
+
+import java.time.LocalDateTime;
+
+public class Book extends ReadingMaterial {
+	
+	private String author;
+	private LocalDateTime date;
+	
+	public Book(String name, String publisher, String author, LocalDateTime date) {
+		super(name, publisher);
+		this.author = author;
+		this.date = date;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [author=" + author + ", date=" + date + ", getName()=" + getName() + ", getPublisher()="
+				+ getPublisher() + "]";
+	}
+
+}

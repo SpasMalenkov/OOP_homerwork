@@ -1,0 +1,62 @@
+package library;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
+
+public class LibraryMan extends Thread {
+	
+	private static final double PERCENT = 100.0;
+	private static final int TIME_TO_WAIT = 1000;
+	private Map<ReadingMaterial, Double> materialsToFollow;
+	
+	public LibraryMan(){
+		this.setDaemon(true);
+		materialsToFollow = new HashMap<ReadingMaterial, Double>();
+	}
+	
+	@Override
+	public void run(){
+		while(true){
+			try {
+				Thread.sleep(TIME_TO_WAIT);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			for(ReadingMaterial r : materialsToFollow.keySet()){
+				try {
+					int secForThisBook = r.getSecondsForTake();
+					LocalDateTime time = r.getTimeTaken();
+					Duration d = Duration.between(time, LocalDateTime.now());
+					if(d.getSeconds() > secForThisBook){
+						int sec = (int) (d.getSeconds() - secForThisBook);
+						Double money = ((PERCENT + (double)sec)/PERCENT) * r.getPrice();
+						materialsToFollow.put(r, money);
+					}
+				} catch (LibraryException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public void addMaterialToWatch(ReadingMaterial readingMaterial){
+		try {
+			materialsToFollow.put(readingMaterial, readingMaterial.getPrice());
+		} catch (LibraryException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public Double getHowMuchIHaveToPayForThis(ReadingMaterial rm){
+		return materialsToFollow.get(rm);
+	}
+	
+	public void removeMaterialToWatch(ReadingMaterial readingMaterial){
+		if(readingMaterial != null && materialsToFollow.containsKey(readingMaterial)){
+			materialsToFollow.remove(readingMaterial);
+		}
+	}
+}

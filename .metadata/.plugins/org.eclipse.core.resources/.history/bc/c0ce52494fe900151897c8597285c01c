@@ -1,0 +1,33 @@
+package test3;
+
+import java.util.List;
+
+public class Courier extends Staff{
+	
+	private static final int NUMBER_OF_MIN_PACKAGES = 5;
+
+	public Courier(String name, String gsm, long number, String address, CityOffice cityOffice) throws ClientException {
+		super(name, gsm, number, address, cityOffice);
+	}
+	
+	@Override
+	public void run(){
+		while(true){
+			while(getCityOffice().getNumberOfPackages() > NUMBER_OF_MIN_PACKAGES){
+				synchronized(getCityOffice()){
+					try{
+						System.out.println("Chakam za pratki.");
+						getCityOffice().wait();
+					}catch(InterruptedException e){
+						e.printStackTrace();
+					}
+				}
+			}
+			
+			System.out.println("Shte vzema pratkite ot ofisa.");
+			
+			List<Pratka> pratkiZaCentralen = getCityOffice().getAll();
+			System.out.println("Karam gi v centralnia ofis - Turnovo.");
+		}
+	}
+}
